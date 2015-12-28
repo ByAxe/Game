@@ -1,4 +1,25 @@
 package equipment;
 
-public abstract class AbstractWeapon {
+import abilities.IAbility;
+import data.TypeOfEquipment;
+
+public abstract class AbstractWeapon extends AbstractEquipment {
+    private int damage;
+
+    public AbstractWeapon(IAbility ability, TypeOfEquipment typeOfEquipment, String title, String description, int requiredLevel, int damage) {
+        super(ability, typeOfEquipment, title, description, requiredLevel);
+        this.damage = damage;
+    }
+
+    public AbstractWeapon() {
+
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
 }
