@@ -1,5 +1,9 @@
 package creations;
 
-public interface ICreation {
+import data.TypeOfEquipment;
 
+public interface ICreation {
+    int attack();
+
+    void drop(TypeOfEquipment typeOfEquipment);
 }

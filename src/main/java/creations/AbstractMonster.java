@@ -1,5 +1,6 @@
 package creations;
 
-public abstract class AbstractMonster {
+public abstract class AbstractMonster extends AbstractCreation {
+     private String description;
 
 }
