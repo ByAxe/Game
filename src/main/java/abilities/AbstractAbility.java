@@ -6,10 +6,10 @@ public abstract class AbstractAbility implements IAbility {
     private String description;
     private int heal;
     private int damage;
-    private int requiredLevel;
+    private byte requiredLevel;
     private int requiredCountOfMP;
 
-    public AbstractAbility(String title, String description, int heal, int damage, int requiredLevel, int requiredCountOfMP) {
+    public AbstractAbility(String title, String description, int heal, int damage, byte requiredLevel, int requiredCountOfMP) {
         this.title = title;
         this.description = description;
         this.heal = heal;

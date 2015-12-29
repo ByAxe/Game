@@ -6,6 +6,8 @@ import equipment.IEquipment;
 import java.util.Map;
 
 public abstract class AbstractCreation implements ICreation {
+
+    /*TODO Maybe I should use here EmunMap instead of merely Map*/
     protected Map<TypeOfEquipment, IEquipment> equipmentMap;
     private String name;
     private byte level;
