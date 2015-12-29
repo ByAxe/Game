@@ -4,11 +4,12 @@ import abilities.IAbility;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
 
+import java.util.EnumMap;
 import java.util.Map;
 
 public class Hero extends AbstractHero {
 
-    public Hero(Map<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
+    public Hero(EnumMap<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
         super(equipmentMap, name, level, MP, HP, strength, agility, abilities, experience);
     }
 

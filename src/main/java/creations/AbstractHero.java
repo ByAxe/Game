@@ -4,13 +4,14 @@ import abilities.IAbility;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
 
+import java.util.EnumMap;
 import java.util.Map;
 
 public abstract class AbstractHero extends AbstractCreation implements IHero {
     protected Map<String, IAbility> abilities;
     private int experience;
 
-    public AbstractHero(Map<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
+    public AbstractHero(EnumMap<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
         super(equipmentMap, name, level, MP, HP, strength, agility);
         this.abilities = abilities;
         this.experience = experience;

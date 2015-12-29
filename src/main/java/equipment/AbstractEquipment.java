@@ -10,7 +10,7 @@ public abstract class AbstractEquipment implements IEquipment {
     private String description;
     private int requiredLevel;
 
-    public AbstractEquipment(IAbility ability, TypeOfEquipment typeOfEquipment, String title, String description, int requiredLevel) {
+    public AbstractEquipment(TypeOfEquipment typeOfEquipment, IAbility ability, String title, String description, int requiredLevel) {
         this.ability = ability;
         this.typeOfEquipment = typeOfEquipment;
         this.title = title;

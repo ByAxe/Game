@@ -1,0 +1,57 @@
+#WEAPON
+.
+.Old Sword
+.Just old sword with bad damage
+.1
+.10
+
+#WEAPON
+.
+.Average Axe
+.Long time ago it was a great Axe
+.3
+.15
+
+#WEAPON
+.Fire Ball
+.Elven sharp Knife
+.Fine ancient work, the equally deadly for enemies
+.5
+.30
+
+#WEAPON
+.Frost Wave
+.Two-handed King's sword
+.Perfect two-handled sword made from unknown material
+.9
+.50
+
+--------------------------------------------------------
+
+#ARMOR
+.
+.Rags
+.Old rags, used as armor
+.1
+.5
+
+#ARMOR
+.
+.Leather Armor
+.High-quality and solid leather
+.3
+.10
+
+#ARMOR
+.
+.Plate Armor Knight
+.Strong armor of valiant knight
+.6
+.20
+
+#ARMOR
+.Plain Heal
+.Ebony magic armor
+.Ancient Dwarf work, endowed with magic
+.10
+.40

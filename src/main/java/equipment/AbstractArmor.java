@@ -6,8 +6,8 @@ import data.TypeOfEquipment;
 public abstract class AbstractArmor extends AbstractEquipment {
     private int protection;
 
-    public AbstractArmor(IAbility ability, TypeOfEquipment typeOfEquipment, String title, String description, int requiredLevel, int protection) {
-        super(ability, typeOfEquipment, title, description, requiredLevel);
+    public AbstractArmor(TypeOfEquipment typeOfEquipment, IAbility ability, String title, String description, int requiredLevel, int protection) {
+        super(typeOfEquipment, ability, title, description, requiredLevel);
         this.protection = protection;
     }
 

@@ -3,11 +3,12 @@ package creations;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
 
+import java.util.EnumMap;
 import java.util.Map;
 
 public class Monster extends AbstractMonster {
 
-    public Monster(Map<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility, String description) {
+    public Monster(EnumMap<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility, String description) {
         super(equipmentMap, name, level, MP, HP, strength, agility, description);
     }
 

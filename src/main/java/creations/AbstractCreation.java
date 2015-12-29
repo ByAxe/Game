@@ -6,6 +6,7 @@ import equipment.AbstractEquipment;
 import equipment.AbstractWeapon;
 import equipment.IEquipment;
 
+import java.util.EnumMap;
 import java.util.Map;
 
 import static data.SystemData.*;
@@ -13,7 +14,7 @@ import static data.SystemData.*;
 public abstract class AbstractCreation implements ICreation {
 
     /*TODO Maybe I should use here EmunMap instead of merely Map*/
-    protected Map<TypeOfEquipment, IEquipment> equipmentMap;
+    protected EnumMap<TypeOfEquipment, IEquipment> equipmentMap;
     private String name;
     private byte level;
     private int MP;
@@ -27,7 +28,7 @@ public abstract class AbstractCreation implements ICreation {
     private boolean isAbilityInWeapon = null != ((AbstractEquipment) weapon).getAbility();
     private boolean isAbilityInArmor = null != ((AbstractEquipment) armor).getAbility();
 
-    public AbstractCreation(Map<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility) {
+    public AbstractCreation(EnumMap<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility) {
         this.equipmentMap = equipmentMap;
         this.name = name;
         this.level = level;
@@ -64,7 +65,7 @@ public abstract class AbstractCreation implements ICreation {
         return equipmentMap;
     }
 
-    public void setEquipmentMap(Map<TypeOfEquipment, IEquipment> equipmentMap) {
+    public void setEquipmentMap(EnumMap<TypeOfEquipment, IEquipment> equipmentMap) {
         this.equipmentMap = equipmentMap;
     }
 

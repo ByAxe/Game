@@ -6,8 +6,8 @@ import data.TypeOfEquipment;
 public abstract class AbstractWeapon extends AbstractEquipment {
     private int damage;
 
-    public AbstractWeapon(IAbility ability, TypeOfEquipment typeOfEquipment, String title, String description, int requiredLevel, int damage) {
-        super(ability, typeOfEquipment, title, description, requiredLevel);
+    public AbstractWeapon(TypeOfEquipment typeOfEquipment, IAbility ability, String title, String description, int requiredLevel, int damage) {
+        super(typeOfEquipment, ability, title, description, requiredLevel);
         this.damage = damage;
     }
 
