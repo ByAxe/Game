@@ -38,7 +38,7 @@ public abstract class AbstractAbility implements IAbility {
         return damage;
     }
 
-    public int getRequiredLevel() {
+    public byte getRequiredLevel() {
         return requiredLevel;
     }
 

@@ -13,6 +13,6 @@ public class NaturePower extends AbstractAbility {
 
     @Override
     public int use() {
-        return getDamage();
+        return getHeal();
     }
 }

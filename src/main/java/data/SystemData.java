@@ -7,7 +7,7 @@ public class SystemData {
 
     public static final byte MIN_RANDOM = -5;
     public static final byte MAX_RANDOM = 5;
-    public static final byte PERFORMANCE_FACTOR = 5;
+    public static final double PERFORMANCE_FACTOR = 0.1;
 
     /*TODO I not sure that the Map will be filled by the fillMap() method when the program begins*/
     public static Map<Byte, Integer> requiredExperience;

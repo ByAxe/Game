@@ -13,6 +13,6 @@ public class PlainHeal extends AbstractAbility {
 
     @Override
     public int use() {
-        return getDamage();
+        return getHeal();
     }
 }

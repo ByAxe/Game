@@ -1,9 +1,14 @@
 package creations;
 
 import data.TypeOfEquipment;
+import equipment.AbstractArmor;
+import equipment.AbstractEquipment;
+import equipment.AbstractWeapon;
 import equipment.IEquipment;
 
 import java.util.Map;
+
+import static data.SystemData.*;
 
 public abstract class AbstractCreation implements ICreation {
 
@@ -16,6 +21,12 @@ public abstract class AbstractCreation implements ICreation {
     private int strength;
     private int agility;
 
+    /*TODO Here is, maybe I can have a problem in that case if these variables will be immutable while working with Hero() class*/
+    private IEquipment armor = this.equipmentMap.get(TypeOfEquipment.ARMOR);
+    private IEquipment weapon = this.equipmentMap.get(TypeOfEquipment.WEAPON);
+    private boolean isAbilityInWeapon = null != ((AbstractEquipment) weapon).getAbility();
+    private boolean isAbilityInArmor = null != ((AbstractEquipment) armor).getAbility();
+
     public AbstractCreation(Map<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility) {
         this.equipmentMap = equipmentMap;
         this.name = name;
@@ -27,6 +38,26 @@ public abstract class AbstractCreation implements ICreation {
     }
 
     public AbstractCreation() {
+    }
+
+    /*TODO MAYBE IT WON'T WORK AS IT HAS TO! IF NO - I SHOULD TRANSPORT THIS METHOD INTO HERO() AND MONSTER() CLASSES*/
+    @Override
+    public int attack() {
+        int damage = ((AbstractWeapon) weapon).getDamage();
+
+        return (isAbilityInWeapon ? ((AbstractEquipment) weapon).getAbility().use() : 0)
+                + damage * (int) (PERFORMANCE_FACTOR * this.getStrength()) + randomDistribution();
+    }
+
+    public int resistance() {
+        int protection = ((AbstractArmor) armor).getProtection();
+
+        return (isAbilityInArmor ? ((AbstractEquipment) armor).getAbility().use() : 0)
+                + protection * (int) (PERFORMANCE_FACTOR * this.getAgility()) + randomDistribution();
+    }
+
+    public int randomDistribution() {
+        return MIN_RANDOM + (int) (Math.random() * ((MAX_RANDOM - MIN_RANDOM) + 1));
     }
 
     public Map<TypeOfEquipment, IEquipment> getEquipmentMap() {
