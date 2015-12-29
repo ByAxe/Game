@@ -8,10 +8,11 @@ public class RegExp {
 
     public static final String ANSWER = "([Yy][Ee][Ss])|([Nn][Oo])";
     public static final String NUMERIC = "[0-9]+";
+    public static final String WEAPON = "(WEAPON)\\s*";
 
     public static Scanner scan = new Scanner(System.in);
 
-    private static boolean test(String testString, String requiredPattern) {
+    public static boolean checkOnPattern(String testString, String requiredPattern) {
         Pattern p = Pattern.compile(requiredPattern);
         Matcher m = p.matcher(testString);
         return m.matches();
@@ -23,7 +24,7 @@ public class RegExp {
         while (true) {
             System.out.print(message);
             testString = scan.next();
-            if (!test(testString, requiredPattern)) {
+            if (!checkOnPattern(testString, requiredPattern)) {
                 System.out.println("\nYou've been entered incorrect value.\n\tTry it again, please.");
                 testString = null;
             } else return testString;

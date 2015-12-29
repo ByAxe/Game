@@ -4,11 +4,17 @@ import abilities.skills.constructive.NaturePower;
 import abilities.skills.constructive.PlainHeal;
 import abilities.skills.destructive.FireBall;
 import abilities.skills.destructive.FrostWave;
+import data.SystemData;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SkillsConfig {
+
+    @Bean
+    public SystemData systemData(){
+        return new SystemData();
+    }
 
     @Bean
     public FireBall fireBall() {

@@ -4,7 +4,6 @@ import data.TypeOfEquipment;
 import equipment.IEquipment;
 
 import java.util.EnumMap;
-import java.util.Map;
 
 public class Monster extends AbstractMonster {
 
