@@ -7,8 +7,10 @@ import java.util.regex.Pattern;
 public class RegExp {
 
     public static final String ANSWER = "([Yy][Ee][Ss])|([Nn][Oo])";
+    public static final String YES = "([Yy][Ee][Ss])";
     public static final String NUMERIC = "[0-9]+";
     public static final String WEAPON = "(WEAPON)\\s*";
+    public static final String NAME = "^[a-zA-Z]{3,15}$";
 
     public static Scanner scan = new Scanner(System.in);
 

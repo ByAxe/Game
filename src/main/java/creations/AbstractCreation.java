@@ -23,14 +23,14 @@ public abstract class AbstractCreation implements ICreation {
     private int agility;
 
     /*TODO Here is, maybe I can have a problem in that case if these variables will be immutable while working with Hero() class*/
-    private IEquipment armor = this.equipmentMap.get(TypeOfEquipment.ARMOR);
+/*    private IEquipment armor = this.equipmentMap.get(TypeOfEquipment.ARMOR);
     private IEquipment weapon = this.equipmentMap.get(TypeOfEquipment.WEAPON);
     private boolean isAbilityInWeapon = null != ((AbstractEquipment) weapon).getAbility();
-    private boolean isAbilityInArmor = null != ((AbstractEquipment) armor).getAbility();
+    private boolean isAbilityInArmor = null != ((AbstractEquipment) armor).getAbility();*/
 
-    public AbstractCreation(EnumMap<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility) {
-        this.equipmentMap = equipmentMap;
+    public AbstractCreation(String name, EnumMap<TypeOfEquipment, IEquipment> equipmentMap, byte level, int MP, int HP, int strength, int agility) {
         this.name = name;
+        this.equipmentMap = equipmentMap;
         this.level = level;
         this.MP = MP;
         this.HP = HP;
@@ -44,14 +44,19 @@ public abstract class AbstractCreation implements ICreation {
     /*TODO MAYBE IT WON'T WORK AS IT HAS TO! IF NO - I SHOULD TRANSPORT THIS METHOD INTO HERO() AND MONSTER() CLASSES*/
     @Override
     public int attack() {
+        IEquipment weapon = this.equipmentMap.get(TypeOfEquipment.WEAPON);
+        boolean isAbilityInWeapon = null != ((AbstractEquipment) weapon).getAbility();
         int damage = ((AbstractWeapon) weapon).getDamage();
 
         return (isAbilityInWeapon ? ((AbstractEquipment) weapon).getAbility().use() : 0)
                 + damage * (int) (PERFORMANCE_FACTOR * this.getStrength()) + randomDistribution();
+
     }
 
     public int resistance() {
+        IEquipment armor = this.equipmentMap.get(TypeOfEquipment.ARMOR);
         int protection = ((AbstractArmor) armor).getProtection();
+        boolean isAbilityInArmor = null != ((AbstractEquipment) armor).getAbility();
 
         return (isAbilityInArmor ? ((AbstractEquipment) armor).getAbility().use() : 0)
                 + protection * (int) (PERFORMANCE_FACTOR * this.getAgility()) + randomDistribution();

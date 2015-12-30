@@ -6,6 +6,7 @@ import equipment.IEquipment;
 import equipment.armor.Armor;
 import equipment.weapon.Weapon;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,6 +17,7 @@ import java.util.TreeMap;
 import static abilities.regular.experience.RegExp.WEAPON;
 import static abilities.regular.experience.RegExp.checkOnPattern;
 
+@Component
 public class MyParser {
 
     public Map<Integer, IEquipment> weaponTable = new TreeMap<>();
@@ -30,7 +32,7 @@ public class MyParser {
         this.fileName = fileName;
     }
 
-    public void parsing() {
+    public void parseEquipment() {
         int charSharp;
         int numberOfCurrentWeapon = 0;
         int numberOfCurrentArmor = 0;

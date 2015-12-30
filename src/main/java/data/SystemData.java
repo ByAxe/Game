@@ -1,8 +1,11 @@
 package data;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Map;
 import java.util.TreeMap;
 
+@Component
 public class SystemData {
 
     public static final byte MIN_RANDOM = -5;
@@ -10,16 +13,16 @@ public class SystemData {
     public static final double PERFORMANCE_FACTOR = 0.1;
 
     /*TODO I not sure that the Map will be filled by the fillMap() method when the program begins*/
-    private static Map<Byte, Integer> requiredExperience;
+    private Map<Byte, Integer> requiredExperience;
 
-    public static void fillMap() {
+    public void fillMap() {
         requiredExperience = new TreeMap<>();
         for (byte i = 1; i <= 10; i++) {
             requiredExperience.put(i, i * 100);
         }
     }
 
-    public static Map<Byte, Integer> getRequiredExperience() {
+    public Map<Byte, Integer> getRequiredExperience() {
         return requiredExperience;
     }
 }

@@ -9,8 +9,8 @@ import java.util.Map;
 
 public class Hero extends AbstractHero {
 
-    public Hero(EnumMap<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
-        super(equipmentMap, name, level, MP, HP, strength, agility, abilities, experience);
+    public Hero(String name, EnumMap<TypeOfEquipment, IEquipment> equipmentMap, byte level, int MP, int HP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
+        super(name, equipmentMap, level, MP, HP, strength, agility, abilities, experience);
     }
 
     public Hero() {

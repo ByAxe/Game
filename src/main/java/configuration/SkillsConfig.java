@@ -6,8 +6,10 @@ import abilities.skills.constructive.PlainHeal;
 import abilities.skills.destructive.FireBall;
 import abilities.skills.destructive.FrostWave;
 import data.SystemData;
+import equipment.IEquipment;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import parser.MyParser;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +19,9 @@ public class SkillsConfig {
 
     @Bean
     public SystemData systemData() {
-        return new SystemData();
+        SystemData sd = new SystemData();
+        sd.fillMap();
+        return sd;
     }
 
     @Bean

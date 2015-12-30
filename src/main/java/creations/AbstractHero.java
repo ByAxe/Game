@@ -11,8 +11,8 @@ public abstract class AbstractHero extends AbstractCreation implements IHero {
     protected Map<String, IAbility> abilities;
     private int experience;
 
-    public AbstractHero(EnumMap<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int MP, int HP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
-        super(equipmentMap, name, level, MP, HP, strength, agility);
+    public AbstractHero(String name, EnumMap<TypeOfEquipment, IEquipment> equipmentMap, byte level, int MP, int HP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
+        super(name, equipmentMap, level, MP, HP, strength, agility);
         this.abilities = abilities;
         this.experience = experience;
     }
