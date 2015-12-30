@@ -2,7 +2,6 @@ package configuration;
 
 import abilities.regular.experience.RegExp;
 import creations.Hero;
-import creations.Monster;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
 import equipment.armor.Armor;
@@ -14,13 +13,13 @@ import org.springframework.context.annotation.Configuration;
 import java.util.EnumMap;
 
 @Configuration
-public class MonsterConfig {
+public class HeroConfig {
 
     @Bean
     @Autowired
     public Hero hero(Weapon weapon, Armor armor) {
         EnumMap<TypeOfEquipment, IEquipment> equipmentMap = new EnumMap<>(TypeOfEquipment.class);
-        equipmentMap.put(TypeOfEquipment.ARMOR,weapon);
+        equipmentMap.put(TypeOfEquipment.ARMOR, weapon);
         equipmentMap.put(TypeOfEquipment.WEAPON, armor);
         return new Hero(RegExp.checkOnCorrectValue("Hi. Please, enter your name:\t", RegExp.NAME),
                 equipmentMap, (byte) 1, 20, 100, 15, 15, null, 0);

@@ -28,5 +28,6 @@ public class Game {
         RegExp.checkOnCorrectValue("You see the entrance. Enter? (adventure start here)\n\t(yes) - ", YES);
 
         System.out.println(hero.enter());
+
     }
 }

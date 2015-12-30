@@ -5,7 +5,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import({SkillsAndEquipmentConfig.class, MonsterConfig.class})
-@EnableAspectJAutoProxy
+@Import({SkillsAndEquipmentConfig.class, HeroConfig.class, AspectConfig.class})
 public class AppConfig {
 }

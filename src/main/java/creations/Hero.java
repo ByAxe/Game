@@ -4,10 +4,13 @@ import abilities.IAbility;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 import java.util.EnumMap;
 import java.util.Map;
 
+@Component
 public class Hero extends AbstractHero {
 
     public Hero(String name, EnumMap<TypeOfEquipment, IEquipment> equipmentMap, byte level, int MP, int HP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
