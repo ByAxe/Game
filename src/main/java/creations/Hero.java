@@ -3,6 +3,7 @@ package creations;
 import abilities.IAbility;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
+import org.springframework.context.annotation.Bean;
 
 import java.util.EnumMap;
 import java.util.Map;

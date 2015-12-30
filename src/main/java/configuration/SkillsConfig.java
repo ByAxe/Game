@@ -6,13 +6,10 @@ import abilities.skills.constructive.PlainHeal;
 import abilities.skills.destructive.FireBall;
 import abilities.skills.destructive.FrostWave;
 import data.SystemData;
-import equipment.IEquipment;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import parser.MyParser;
 
 import java.util.HashMap;
-import java.util.Map;
 
 @Configuration
 public class SkillsConfig {
@@ -52,9 +49,9 @@ public class SkillsConfig {
                 20, 0, (byte) 1, 10);
     }
 
-    @Bean
-    public Map<String, IAbility> abilityMap() {
-        Map<String, IAbility> abilityMap = new HashMap<>();
+    @Bean(name = "abilityMap")
+    public HashMap<String, IAbility> abilityMap() {
+        HashMap<String, IAbility> abilityMap = new HashMap<>();
 
         abilityMap.put(fireBall().getDescription(), fireBall());
         abilityMap.put(frostWave().getDescription(), frostWave());

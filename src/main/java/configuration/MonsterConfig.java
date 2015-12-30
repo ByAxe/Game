@@ -1,14 +1,6 @@
 package configuration;
 
-import creations.Monster;
-import data.TypeOfEquipment;
-import equipment.IEquipment;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import parser.MyParser;
-
-import java.util.EnumMap;
 
 @Configuration
 public class MonsterConfig {
