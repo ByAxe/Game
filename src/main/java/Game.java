@@ -20,7 +20,8 @@ public class Game {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
         Scanner scan = new Scanner(System.in);
-        AbstractEquipment tempEq;
+
+/*        AbstractEquipment tempEq;
 
         MyParserConfig myParserConfig = context.getBean(MyParserConfig.class);
 
@@ -31,10 +32,9 @@ public class Game {
 
         tempEq = (AbstractEquipment) myParserConfig.armorTable.get(1);
         heroStartEquipment.put(tempEq.getTypeOfEquipment(), tempEq);
-        /*-----------------------------------------------------------*/
 
         Hero hero = new Hero(RegExp.checkOnCorrectValue("Hi. Please, enter your name:\t", NAME),
-                heroStartEquipment, (byte) 1, 20, 100, 15, 15, null, 0);
+                heroStartEquipment, (byte) 1, 20, 100, 15, 15, null, 0);*/
 
         /*-----------------------------------------------------------*/
 
@@ -48,6 +48,6 @@ public class Game {
         }
         RegExp.checkOnCorrectValue("You see the entrance. Enter? (adventure start here)\n\t(yes) - ", YES);
 
-        hero.enter();
+//        hero.enter();
     }
 }
