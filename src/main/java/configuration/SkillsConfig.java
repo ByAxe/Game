@@ -1,5 +1,6 @@
 package configuration;
 
+import abilities.IAbility;
 import abilities.skills.constructive.NaturePower;
 import abilities.skills.constructive.PlainHeal;
 import abilities.skills.destructive.FireBall;
@@ -8,11 +9,14 @@ import data.SystemData;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Configuration
 public class SkillsConfig {
 
     @Bean
-    public SystemData systemData(){
+    public SystemData systemData() {
         return new SystemData();
     }
 
@@ -42,5 +46,17 @@ public class SkillsConfig {
         return new PlainHeal("Plain Heal",
                 "It's just a plain healing magic that everybody knows.",
                 20, 0, (byte) 1, 10);
+    }
+
+    @Bean
+    public Map<String, IAbility> abilityMap() {
+        Map<String, IAbility> abilityMap = new HashMap<>();
+
+        abilityMap.put(fireBall().getDescription(), fireBall());
+        abilityMap.put(frostWave().getDescription(), frostWave());
+        abilityMap.put(naturePower().getDescription(), naturePower());
+        abilityMap.put(plainHeal().getDescription(), plainHeal());
+
+        return abilityMap;
     }
 }
