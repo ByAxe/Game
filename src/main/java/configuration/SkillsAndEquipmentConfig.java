@@ -29,7 +29,7 @@ import static abilities.regular.experience.RegExp.WEAPON;
 import static abilities.regular.experience.RegExp.checkOnPattern;
 
 @Configuration
-public class SkillsConfig {
+public class SkillsAndEquipmentConfig {
 
     @Autowired
     @Qualifier("weaponMap")
@@ -96,12 +96,19 @@ public class SkillsConfig {
         return abilityMap;
     }
 
-/*
-    @Autowired
-    public MyParser(String fileName) {
-        this.fileName = fileName;
+    @Bean
+    @DependsOn("weaponMap")
+    public Weapon firstWeapon() {
+        Weapon weapon = (Weapon) weaponTable.get(1);
+        return weapon;
     }
-*/
+
+    @Bean
+    @DependsOn("armorMap")
+    public Armor firstArmor() {
+        Armor armor = (Armor) armorTable.get(1);
+        return armor;
+    }
 
     @Bean(name = "weaponMap")
     @DependsOn("abilityMap")
@@ -174,8 +181,6 @@ public class SkillsConfig {
 
     }
 
-
-    /*TODO Null Pointer Exception - abilityMap is empty! WHY?*/
     public IAbility findEqualsTitle(String info) {
         IAbility ability = null;
         for (Map.Entry<String, IAbility> entry : abilityMap().entrySet()) {
