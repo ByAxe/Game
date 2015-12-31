@@ -7,12 +7,12 @@ import equipment.IEquipment;
 import java.util.EnumMap;
 import java.util.Map;
 
-public abstract class AbstractHero extends AbstractCreation implements IHero {
+public abstract class AbstractHero extends AbstractCreation {
     protected Map<String, IAbility> abilities;
     private int experience;
 
-    public AbstractHero(String name, EnumMap<TypeOfEquipment, IEquipment> equipmentMap, byte level, int MP, int HP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
-        super(name, equipmentMap, level, MP, HP, strength, agility);
+    public AbstractHero(EnumMap<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int maxMP, int maxHP, int strength, int agility, Map<String, IAbility> abilities, int experience) {
+        super(equipmentMap, name, level, maxMP, maxHP, strength, agility);
         this.abilities = abilities;
         this.experience = experience;
     }
@@ -36,4 +36,6 @@ public abstract class AbstractHero extends AbstractCreation implements IHero {
     public void setExperience(int experience) {
         this.experience = experience;
     }
+
+
 }

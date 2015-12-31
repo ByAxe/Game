@@ -7,8 +7,8 @@ import java.util.EnumMap;
 
 public class Monster extends AbstractMonster {
 
-    public Monster(String name, EnumMap<TypeOfEquipment, IEquipment> equipmentMap,  byte level, int MP, int HP, int strength, int agility, String description) {
-        super(name, equipmentMap, level, MP, HP, strength, agility, description);
+    public Monster(EnumMap<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int maxMP, int maxHP, int strength, int agility, String description) {
+        super(equipmentMap, name, level, maxMP, maxHP, strength, agility, description);
     }
 
     public Monster() {

@@ -17,23 +17,21 @@ public abstract class AbstractCreation implements ICreation {
     protected EnumMap<TypeOfEquipment, IEquipment> equipmentMap;
     private String name;
     private byte level;
-    private int MP;
-    private int HP;
+    private int maxMP;
+    private int currentMP;
+    private int currentHP;
+    private int maxHP;
     private int strength;
     private int agility;
 
-    /*TODO Here is, maybe I can have a problem in that case if these variables will be immutable while working with Hero() class*/
-/*    private IEquipment armor = this.equipmentMap.get(TypeOfEquipment.ARMOR);
-    private IEquipment weapon = this.equipmentMap.get(TypeOfEquipment.WEAPON);
-    private boolean isAbilityInWeapon = null != ((AbstractEquipment) weapon).getAbility();
-    private boolean isAbilityInArmor = null != ((AbstractEquipment) armor).getAbility();*/
-
-    public AbstractCreation(String name, EnumMap<TypeOfEquipment, IEquipment> equipmentMap, byte level, int MP, int HP, int strength, int agility) {
-        this.name = name;
+    public AbstractCreation(EnumMap<TypeOfEquipment, IEquipment> equipmentMap, String name, byte level, int maxMP, int maxHP, int strength, int agility) {
         this.equipmentMap = equipmentMap;
+        this.name = name;
         this.level = level;
-        this.MP = MP;
-        this.HP = HP;
+        this.maxMP = maxMP;
+        this.currentMP = maxMP;
+        this.maxHP = maxHP;
+        this.currentHP = maxHP;
         this.strength = strength;
         this.agility = agility;
     }
@@ -41,7 +39,6 @@ public abstract class AbstractCreation implements ICreation {
     public AbstractCreation() {
     }
 
-    /*TODO MAYBE IT WON'T WORK AS IT HAS TO! IF NO - I SHOULD TRANSPORT THIS METHOD INTO HERO() AND MONSTER() CLASSES*/
     @Override
     public int attack() {
         IEquipment weapon = this.equipmentMap.get(TypeOfEquipment.WEAPON);
@@ -90,20 +87,20 @@ public abstract class AbstractCreation implements ICreation {
         this.level = level;
     }
 
-    public int getMP() {
-        return MP;
+    public int getMaxMP() {
+        return maxMP;
     }
 
-    public void setMP(int MP) {
-        this.MP = MP;
+    public void setMaxMP(int maxMP) {
+        this.maxMP = maxMP;
     }
 
-    public int getHP() {
-        return HP;
+    public int getMaxHP() {
+        return maxHP;
     }
 
-    public void setHP(int HP) {
-        this.HP = HP;
+    public void setMaxHP(int maxHP) {
+        this.maxHP = maxHP;
     }
 
     public int getStrength() {
@@ -120,5 +117,21 @@ public abstract class AbstractCreation implements ICreation {
 
     public void setAgility(int agility) {
         this.agility = agility;
+    }
+
+    public int getCurrentMP() {
+        return currentMP;
+    }
+
+    public void setCurrentMP(int currentMP) {
+        this.currentMP = currentMP;
+    }
+
+    public int getCurrentHP() {
+        return currentHP;
+    }
+
+    public void setCurrentHP(int currentHP) {
+        this.currentHP = currentHP;
     }
 }

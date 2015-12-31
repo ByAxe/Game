@@ -18,13 +18,17 @@ public class HeroWatcher {
     public Object watchEnter(ProceedingJoinPoint joinPoint, Hero hero) {
         Object result = null;
         try {
-            System.out.println("\n" + hero.getName() + ", you have " + hero.getHP() + " HP & " + hero.getMP() + " MP"
-                    + "\nYour lvl is - " + hero.getLevel());
+            System.out.println("-----------------------------------------------------------------------------------");
+            System.out.println("" + hero.getName() + ", you have " + hero.getCurrentHP() + "/" + hero.getMaxHP() +
+                    " HP & " + hero.getCurrentMP() + "/" + hero.getMaxMP() + " MP" +
+                    "\nYour lvl is - " + hero.getLevel());
             System.out.println("STR: " + hero.getStrength() + " AGL: " + hero.getAgility());
+            System.out.println("-----------------------------------------------------------------------------------");
             result = joinPoint.proceed();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
         return result;
     }
+
 }

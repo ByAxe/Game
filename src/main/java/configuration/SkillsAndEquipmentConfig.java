@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+import static regular.expression.RegExp.ARMOR;
 import static regular.expression.RegExp.WEAPON;
 import static regular.expression.RegExp.checkOnPattern;
 
@@ -98,23 +99,27 @@ public class SkillsAndEquipmentConfig {
         return abilityMap;
     }
 
-    @Bean
+    @Bean(name = "firstWeapon")
     @DependsOn("weaponMap")
     public Weapon firstWeapon() {
         Weapon weapon = (Weapon) weaponTable.get(1);
         return weapon;
     }
 
-    @Bean
+    @Bean(name = "firstArmor")
     @DependsOn("armorMap")
     public Armor firstArmor() {
         Armor armor = (Armor) armorTable.get(1);
         return armor;
     }
 
+
+    /* TODO In weaponTable are saved ARMOR! */
+
     @Bean(name = "weaponMap")
     @DependsOn("abilityMap")
     public TreeMap<Integer, IEquipment> parseWeapon() {
+
         Path relativePath = Paths.get("src/main/java/data", "equipment.txt");
         this.fileName = relativePath.toString();
 
@@ -159,7 +164,7 @@ public class SkillsAndEquipmentConfig {
                 charSharp = bufferedReader.read();
                 if (charSharp == '#') {
 
-                    typeOfEquipment = (checkOnPattern(bufferedReader.readLine(), WEAPON) ?  /*Will find WEAPON or ARMOR*/
+                    typeOfEquipment = (checkOnPattern(bufferedReader.readLine(), ARMOR) ?  /*Will find WEAPON or ARMOR*/
                             TypeOfEquipment.WEAPON : TypeOfEquipment.ARMOR);
 
                     if (typeOfEquipment == TypeOfEquipment.WEAPON) continue;

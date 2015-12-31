@@ -1,6 +1,8 @@
 package creations;
 
+import abilities.IAbility;
 import data.TypeOfEquipment;
+import equipment.IEquipment;
 
 public interface ICreation {
     int attack();
@@ -8,4 +10,18 @@ public interface ICreation {
     int resistance();
 
     void drop(TypeOfEquipment typeOfEquipment);
+
+    default String enter() {
+        return null;
+    }
+
+    default String escape() {
+        return null;
+    }
+
+    default void changeEquipment(TypeOfEquipment typeOfEquipment, IEquipment equipment) { }
+
+    default void useAbility(String title) { }
+
+    default void addAbility(String title, IAbility ability) { }
 }

@@ -3,7 +3,7 @@ __________________________
 
 ##-This project is test task of one company. 
 
-###Let's overview the structure (v0.3.7)
+###Let's overview the structure (v0.3.8)
 =======================================================================================================================
 
 ##- src/main/java |
