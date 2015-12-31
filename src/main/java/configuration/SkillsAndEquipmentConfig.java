@@ -25,8 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static abilities.regular.experience.RegExp.WEAPON;
-import static abilities.regular.experience.RegExp.checkOnPattern;
+import static regular.expression.RegExp.WEAPON;
+import static regular.expression.RegExp.checkOnPattern;
 
 @Configuration
 public class SkillsAndEquipmentConfig {
@@ -115,7 +115,7 @@ public class SkillsAndEquipmentConfig {
     @Bean(name = "weaponMap")
     @DependsOn("abilityMap")
     public TreeMap<Integer, IEquipment> parseWeapon() {
-        Path relativePath = Paths.get("src/main/java/equipment", "equipment.txt");
+        Path relativePath = Paths.get("src/main/java/data", "equipment.txt");
         this.fileName = relativePath.toString();
 
         TreeMap<Integer, IEquipment> weaponTable = new TreeMap<>();

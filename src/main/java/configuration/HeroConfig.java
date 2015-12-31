@@ -1,6 +1,6 @@
 package configuration;
 
-import abilities.regular.experience.RegExp;
+import regular.expression.RegExp;
 import creations.Hero;
 import data.TypeOfEquipment;
 import equipment.IEquipment;

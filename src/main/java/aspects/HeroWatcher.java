@@ -1,11 +1,6 @@
 package aspects;
 
-import creations.AbstractHero;
-import creations.Hero;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class HeroWatcher {
@@ -17,8 +12,8 @@ public class HeroWatcher {
 
 //    TODO I have to solve this problem at an early date
 
-    @Around(value = "enter(hero)", argNames = "joinPoint,hero")
-    public void watchEnter(ProceedingJoinPoint joinPoint, AbstractHero hero) {
+    @Around("enter(hero)")
+    public void watchEnter(ProceedingJoinPoint joinPoint, Hero hero) {
         try {
             System.out.println(hero.getName() + " you have " + hero.getHP() + " HP & " + hero.getMP()
                     + "\n your lvl is " + hero.getLevel());

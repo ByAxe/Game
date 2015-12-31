@@ -1,4 +1,4 @@
-package text;
+package data.texts;
 
 public class EpicText implements Runnable {
 

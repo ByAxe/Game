@@ -1,13 +1,13 @@
-import abilities.regular.experience.RegExp;
+import regular.expression.RegExp;
 import configuration.AppConfig;
 import creations.Hero;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import text.EpicText;
+import data.texts.EpicText;
 
 import java.util.Scanner;
 
-import static abilities.regular.experience.RegExp.YES;
+import static regular.expression.RegExp.YES;
 
 public class Game {
     public static void main(String[] args) {
