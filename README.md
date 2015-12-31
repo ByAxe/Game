@@ -3,7 +3,7 @@ __________________________
 
 ##-This project is test task of one company. 
 
-###Let's overview the structure (v0.3.6)
+###Let's overview the structure (v0.3.7)
 =======================================================================================================================
 
 ##- src/main/java |
@@ -49,7 +49,7 @@ __________________________
         - AbstractArmor.java
         - armor
             - Armor.java - *implementation of all these abstract blocks for Armor*
-        - weapon.java
+        - weapon
             - Weapon.java - *implementation of all these abstract blocks for Weapon*
             
     - regular/expression

@@ -15,7 +15,7 @@ import java.util.EnumMap;
 @Configuration
 public class HeroConfig {
 
-    @Bean
+    @Bean(name = "hero")
     @Autowired
     public Hero hero(Weapon weapon, Armor armor) {
         EnumMap<TypeOfEquipment, IEquipment> equipmentMap = new EnumMap<>(TypeOfEquipment.class);

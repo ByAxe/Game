@@ -1,9 +1,9 @@
-import regular.expression.RegExp;
 import configuration.AppConfig;
-import creations.Hero;
+import creations.IHero;
+import data.texts.EpicText;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import data.texts.EpicText;
+import regular.expression.RegExp;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ public class Game {
                 new AnnotationConfigApplicationContext(AppConfig.class);
         Scanner scan = new Scanner(System.in);
 
-        Hero hero = context.getBean(Hero.class);
+        IHero hero = (IHero) context.getBean("hero");
 
         Thread thread = new Thread(new EpicText("Epic text"));
         thread.start();
