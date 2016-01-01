@@ -10,7 +10,7 @@ public class RegExp {
     public static final String YES = "([Yy][Ee][Ss])";
     public static final String NUMERIC = "[0-9]+";
     public static final String WEAPON = "(WEAPON)\\s*";
-    public static final String ARMOR = "(WEAPON)\\s*";
+    public static final String ARMOR = "(ARMOR)\\s*";
     public static final String NAME = "^[a-zA-Z]{3,15}$";
 
     public static Scanner scan = new Scanner(System.in);

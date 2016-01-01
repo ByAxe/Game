@@ -1,6 +1,6 @@
 import configuration.AppConfig;
 import creations.ICreation;
-import data.texts.EpicText;
+import data.texts.Introduction;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import regular.expression.RegExp;
@@ -17,7 +17,7 @@ public class Game {
 
         ICreation hero = (ICreation) context.getBean("hero");
 
-        Thread thread = new Thread(new EpicText("Epic text"));
+        Thread thread = new Thread(new Introduction("Epic text"));
         thread.start();
 
         try {

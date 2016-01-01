@@ -1,10 +1,10 @@
 package data.texts;
 
-public class EpicText implements Runnable {
+public class Introduction implements Runnable {
 
     String name;
 
-    public EpicText(String name) {
+    public Introduction(String name) {
         this.name = name;
     }
 

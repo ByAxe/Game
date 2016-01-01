@@ -1,7 +1,8 @@
-package equipment;
+package equipment.abstractLevel;
 
 import abilities.IAbility;
 import data.TypeOfEquipment;
+import equipment.IEquipment;
 
 public abstract class AbstractEquipment implements IEquipment {
     private IAbility ability;

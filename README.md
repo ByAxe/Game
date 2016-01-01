@@ -3,53 +3,61 @@ __________________________
 
 ##-This project is test task of one company. 
 
-###Let's overview the structure (v0.3.8)
+###Let's overview the structure (v0.3.9)
 =======================================================================================================================
 
 ##- src/main/java |
+    - Game.java - main method based here
+
     - abilities  - **Here is all our abilities**
         - IAbility - *interface*
-        - AbstractAbility.java - *abstract class*
-        - constructive  - *skills that use healing*
-            - NaturePower.java
-            - PlainHeal.java
-        - destructive  - *skills that give the damage*
-            - FireBall.java
-            - FrostWave.java
+        - abstractLevel
+            - AbstractAbility.java - *abstract class*
+        - implementLevel
+            - constructive  - *skills that use healing*
+                - NaturePower.java
+                - PlainHeal.java
+            - destructive  - *skills that give the damage*
+                - FireBall.java
+                - FrostWave.java
             
     - aspects - **Here is the all aspects that should watch for the actions without explicit influence on the logic**
        - HeroWatcher.java
     
     - configuration - **Spring Configuration files**
         - AppConfig.java - *main configuration class*
-        - SkillsAndEquipmentConfig - *a bit overloaded config, that will be solved at an early date*
+        - AbilityConfig.java
+        - EquipmentConfig.java
         - HeroConfig.java
+        - MonsterConfig.java
         - AspectConfig.java
         
     - creations - **Heroes' and Monsters' logic based here**
         - ICreation.java
-        - IHero.java
-        - AbstractCreation.java - *main abstract class for all creations, implements interface - ICreation*
-        - AbstractHero.java - *extends AbstractCreation class*
-        - AbstractMonster.java - *extends AbstractCreation class*
-        - Monster.java - *implementation of all these abstract blocks for Monster*
-        - Hero.java - *implementation of all these abstract blocks for Hero*
+        - abstractLevel
+            - AbstractCreation.java - *main abstract class for all creations, implements interface - ICreation*
+            - AbstractHero.java - *extends AbstractCreation class*
+            - AbstractMonster.java - *extends AbstractCreation class*
+        - implementLevel
+            - Monster.java - *implementation of all these abstract blocks for Monster*
+            - Hero.java - *implementation of all these abstract blocks for Hero*
     
     - data - **Important data**
-        - SystemData.java - *Information about required experience for the levels of hero*
+        - SystemData.java - *Information about required experience for hero levels*
         - TypeOfEquipment.java - *Enum type of equipment (WEAPON & ARMOR)*
         - equipment.txt  - *data on specific units of equipment*
+        - monsters.txt - *data on specific units of monsters*
         - texts
-            - EpicText.java - *storage with epic texts*
+            - Introduction.java - *Class with intro text*
         
     - equipment - **Equipment of the Hero and Monsters**
         - IEquipment.java - *markdown interface*
-        - AbstractEquipment.java - *main abstract class in equipment' logic*
-        - AbstractWeapon.java
-        - AbstractArmor.java
-        - armor
+        - abstractLevel
+            - AbstractEquipment.java - *main abstract class in equipment' logic*
+            - AbstractWeapon.java
+            - AbstractArmor.java
+        - implementLevel
             - Armor.java - *implementation of all these abstract blocks for Armor*
-        - weapon
             - Weapon.java - *implementation of all these abstract blocks for Weapon*
             
     - regular/expression

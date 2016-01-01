@@ -1,4 +1,6 @@
-package abilities;
+package abilities.abstractLevel;
+
+import abilities.IAbility;
 
 public abstract class AbstractAbility implements IAbility {
 

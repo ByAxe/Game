@@ -1,6 +1,6 @@
 package aspects;
 
-import creations.Hero;
+import creations.implementLevel.Hero;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class HeroWatcher {
 
-    @Pointcut("execution(* creations.Hero.enter()) && target(hero)")
+    @Pointcut("execution(* creations.implementLevel.Hero.enter()) && target(hero)")
     public void enter(Hero hero) {
     }
 

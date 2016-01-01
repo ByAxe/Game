@@ -1,9 +1,10 @@
-package creations;
+package creations.abstractLevel;
 
+import creations.ICreation;
 import data.TypeOfEquipment;
-import equipment.AbstractArmor;
-import equipment.AbstractEquipment;
-import equipment.AbstractWeapon;
+import equipment.abstractLevel.AbstractArmor;
+import equipment.abstractLevel.AbstractEquipment;
+import equipment.abstractLevel.AbstractWeapon;
 import equipment.IEquipment;
 
 import java.util.EnumMap;
@@ -50,6 +51,7 @@ public abstract class AbstractCreation implements ICreation {
 
     }
 
+    @Override
     public int resistance() {
         IEquipment armor = this.equipmentMap.get(TypeOfEquipment.ARMOR);
         int protection = ((AbstractArmor) armor).getProtection();

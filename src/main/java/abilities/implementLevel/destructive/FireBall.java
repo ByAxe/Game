@@ -1,7 +1,7 @@
-package abilities.skills.destructive;
+package abilities.implementLevel.destructive;
 
 
-import abilities.AbstractAbility;
+import abilities.abstractLevel.AbstractAbility;
 
 public class FireBall extends AbstractAbility {
 

@@ -1,4 +1,4 @@
-package creations;
+package creations.abstractLevel;
 
 import abilities.IAbility;
 import data.TypeOfEquipment;

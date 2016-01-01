@@ -19,9 +19,20 @@ public interface ICreation {
         return null;
     }
 
-    default void changeEquipment(TypeOfEquipment typeOfEquipment, IEquipment equipment) { }
+    default void checkInventory() {
+    }
 
-    default void useAbility(String title) { }
+    default void changeEquipment(TypeOfEquipment typeOfEquipment, IEquipment equipment) {
+    }
 
-    default void addAbility(String title, IAbility ability) { }
+    default void showAbilities() {
+    }
+
+    default void useAbility(String title) {
+    }
+
+    default void addAbility(String title, IAbility ability) {
+    }
+
+
 }

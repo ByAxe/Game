@@ -1,5 +1,6 @@
-package creations;
+package creations.implementLevel;
 
+import creations.abstractLevel.AbstractMonster;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
 

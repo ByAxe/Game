@@ -1,10 +1,10 @@
 package configuration;
 
-import creations.Hero;
+import creations.implementLevel.Hero;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
-import equipment.armor.Armor;
-import equipment.weapon.Weapon;
+import equipment.implementLevel.Armor;
+import equipment.implementLevel.Weapon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

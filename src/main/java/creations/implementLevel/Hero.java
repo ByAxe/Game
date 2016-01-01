@@ -1,6 +1,7 @@
-package creations;
+package creations.implementLevel;
 
 import abilities.IAbility;
+import creations.abstractLevel.AbstractHero;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
 import org.springframework.stereotype.Component;

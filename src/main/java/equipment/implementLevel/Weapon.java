@@ -1,8 +1,8 @@
-package equipment.weapon;
+package equipment.implementLevel;
 
 import abilities.IAbility;
 import data.TypeOfEquipment;
-import equipment.AbstractWeapon;
+import equipment.abstractLevel.AbstractWeapon;
 
 public class Weapon extends AbstractWeapon {
 

@@ -1,4 +1,4 @@
-package equipment;
+package equipment.abstractLevel;
 
 import abilities.IAbility;
 import data.TypeOfEquipment;

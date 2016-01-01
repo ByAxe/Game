@@ -1,6 +1,6 @@
-package abilities.skills.constructive;
+package abilities.implementLevel.constructive;
 
-import abilities.AbstractAbility;
+import abilities.abstractLevel.AbstractAbility;
 
 public class PlainHeal extends AbstractAbility {
 
