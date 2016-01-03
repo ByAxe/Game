@@ -18,10 +18,10 @@ import java.util.TreeMap;
 public class MonsterConfig {
 
     @Autowired
-    @Qualifier("monstersList")
+    @Qualifier("monstersParser")
     public TreeMap<Integer, ICreation> monstersTable;
 
-    @Bean(name = "monstersList")
+    @Bean(name = "monstersParser")
     public TreeMap<Integer, ICreation> monstersParser() {
         TreeMap<Integer, ICreation> monstersTable = new TreeMap<>();
 

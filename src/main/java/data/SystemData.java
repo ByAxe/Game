@@ -8,11 +8,20 @@ import java.util.TreeMap;
 @Component
 public class SystemData {
 
-    public static final byte MIN_RANDOM = -5;
-    public static final byte MAX_RANDOM = 5;
     public static final double PERFORMANCE_FACTOR = 0.1;
 
-    /*TODO I not sure that the Map will be filled by the fillMap() method when the program begins*/
+    public static final byte MIN_RANDOM_DAMAGE = -5;
+    public static final byte MAX_RANDOM_DAMAGE = 5;
+
+    public static final byte MIN_RAND_LEVEL_LOW = -1;
+    public static final byte MAX_RAND_LEVEL_LOW = 1;
+
+    public static final byte MIN_RAND_LEVEL_HIGH = -2;
+    public static final byte MAX_RAND_LEVEL_HIGH = 2;
+
+    public static final byte MIN_LEVEL = 1;
+    public static final byte MAX_LEVEL = 10;
+
     private Map<Byte, Integer> requiredExperience;
 
     public void fillMap() {

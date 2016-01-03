@@ -25,11 +25,11 @@ import static regular.expression.RegExp.*;
 public class EquipmentConfig {
 
     @Autowired
-    @Qualifier("weaponMap")
+    @Qualifier("weaponParser")
     public TreeMap<Integer, IEquipment> weaponTable;
 
     @Autowired
-    @Qualifier("armorMap")
+    @Qualifier("armorParser")
     public TreeMap<Integer, IEquipment> armorTable;
 
     private Path relativePath = Paths.get("src/main/java/data", "equipment.txt");
@@ -45,21 +45,21 @@ public class EquipmentConfig {
     private int damageOrHeal;
 
     @Bean(name = "firstWeapon")
-    @DependsOn("weaponMap")
+    @DependsOn("weaponParser")
     public Weapon firstWeapon() {
         return (Weapon) weaponTable.get(1);
     }
 
     @Bean(name = "firstArmor")
-    @DependsOn("armorMap")
+    @DependsOn("armorParser")
     public Armor firstArmor() {
         return (Armor) armorTable.get(1);
     }
 
 
-    @Bean(name = "weaponMap")
+    @Bean(name = "weaponParser")
     @DependsOn("abilityMap")
-    public TreeMap<Integer, IEquipment> parseWeapon() {
+    public TreeMap<Integer, IEquipment> weaponParser() {
 
         TreeMap<Integer, IEquipment> weaponTable = new TreeMap<>();
 
@@ -78,7 +78,7 @@ public class EquipmentConfig {
                     requiredLevel = Integer.parseInt(bufferedReader.readLine().replace(".", ""));
                     damageOrHeal = Integer.parseInt(bufferedReader.readLine().replace(".", ""));
 
-                    weaponTable.put(++numberOfCurrentEquipment,
+                    weaponTable.put(requiredLevel,
                             new Weapon(typeOfEquipment, ability, title, description, requiredLevel, damageOrHeal));
 
                 }
@@ -90,10 +90,10 @@ public class EquipmentConfig {
         return weaponTable;
     }
 
-    @Bean(name = "armorMap")
+    @Bean(name = "armorParser")
     @DependsOn("abilityMap")
 
-    public TreeMap<Integer, IEquipment> parseArmor() {
+    public TreeMap<Integer, IEquipment> armorParser() {
 
         TreeMap<Integer, IEquipment> armorTable = new TreeMap<>();
 
@@ -113,7 +113,7 @@ public class EquipmentConfig {
                     requiredLevel = Integer.parseInt(bufferedReader.readLine().replace(".", ""));
                     damageOrHeal = Integer.parseInt(bufferedReader.readLine().replace(".", ""));
 
-                    armorTable.put(++numberOfCurrentEquipment,
+                    armorTable.put(requiredLevel,
                             new Armor(typeOfEquipment, ability, title, description, requiredLevel, damageOrHeal));
 
                 }

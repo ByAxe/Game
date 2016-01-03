@@ -14,7 +14,6 @@ import static data.SystemData.*;
 
 public abstract class AbstractCreation implements ICreation {
 
-    /*TODO Maybe I should use here EmunMap instead of merely Map*/
     protected EnumMap<TypeOfEquipment, IEquipment> equipmentMap;
     private String name;
     private byte level;
@@ -62,7 +61,7 @@ public abstract class AbstractCreation implements ICreation {
     }
 
     public int randomDistribution() {
-        return MIN_RANDOM + (int) (Math.random() * ((MAX_RANDOM - MIN_RANDOM) + 1));
+        return MIN_RANDOM_DAMAGE + (int) (Math.random() * ((MAX_RANDOM_DAMAGE - MIN_RANDOM_DAMAGE) + 1));
     }
 
     public Map<TypeOfEquipment, IEquipment> getEquipmentMap() {

@@ -3,7 +3,7 @@ __________________________
 
 ##-This project is test task of one company. 
 
-###Let's overview the structure (v0.3.9)
+###Let's overview the structure (v0.4.0)
 =======================================================================================================================
 
 ##- src/main/java |
@@ -22,7 +22,7 @@ __________________________
                 - FrostWave.java
             
     - aspects - **Here is the all aspects that should watch for the actions without explicit influence on the logic**
-       - HeroWatcher.java
+       - BattleWatcher.java
     
     - configuration - **Spring Configuration files**
         - AppConfig.java - *main configuration class*
@@ -48,7 +48,8 @@ __________________________
         - equipment.txt  - *data on specific units of equipment*
         - monsters.txt - *data on specific units of monsters*
         - texts
-            - Introduction.java - *Class with intro text*
+            - Introduction.java
+            - FirstMeeting.java
         
     - equipment - **Equipment of the Hero and Monsters**
         - IEquipment.java - *markdown interface*

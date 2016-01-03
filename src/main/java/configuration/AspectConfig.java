@@ -1,6 +1,6 @@
 package configuration;
 
-import aspects.HeroWatcher;
+import aspects.BattleWatcher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -11,7 +11,7 @@ public class AspectConfig {
 
 
     @Bean
-    public HeroWatcher heroWatcher() {
-        return new HeroWatcher();
+    public BattleWatcher heroWatcher() {
+        return new BattleWatcher();
     }
 }

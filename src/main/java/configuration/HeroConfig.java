@@ -12,6 +12,8 @@ import regular.expression.RegExp;
 
 import java.util.EnumMap;
 
+import static data.SystemData.MIN_LEVEL;
+
 @Configuration
 public class HeroConfig {
 
@@ -22,6 +24,6 @@ public class HeroConfig {
         equipmentMap.put(TypeOfEquipment.WEAPON, weapon);
         equipmentMap.put(TypeOfEquipment.ARMOR, armor);
         return new Hero(equipmentMap, RegExp.checkOnCorrectValue("Hi. Please, enter your name:\t", RegExp.NAME),
-                (byte) 1, 20, 100, 15, 15, null, 0);
+                MIN_LEVEL, 20, 100, 15, 15, null, 0);
     }
 }

@@ -19,7 +19,8 @@ public interface ICreation {
         return null;
     }
 
-    default void checkInventory() {
+    default String checkInventory() {
+        return null;
     }
 
     default void changeEquipment(TypeOfEquipment typeOfEquipment, IEquipment equipment) {
@@ -32,6 +33,9 @@ public interface ICreation {
     }
 
     default void addAbility(String title, IAbility ability) {
+    }
+
+    default void startBattle() {
     }
 
 

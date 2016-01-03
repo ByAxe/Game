@@ -41,6 +41,22 @@ public class Hero extends AbstractHero {
     }
 
     @Override
+    public void startBattle() {
+
+    }
+
+    @Override
+    public String checkInventory() {
+        return "\n\tWeapon: " + equipmentMap.get(TypeOfEquipment.WEAPON) +
+                "\n\tArmor: " + equipmentMap.get(TypeOfEquipment.ARMOR);
+    }
+
+    @Override
+    public void showAbilities() {
+
+    }
+
+    @Override
     public String escape() {
         return "\nLet's get out of here!";
     }

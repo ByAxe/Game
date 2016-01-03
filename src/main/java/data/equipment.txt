@@ -7,17 +7,52 @@
 
 #WEAPON
 .
-.Average Axe
-.Long time ago it was a great Axe
+.Club
+.Strong cudgel of oak
+.2
+.12
+
+#WEAPON
+.
+.Lumberjack Axe
+.An ordinary ax, which divides the stumps
 .3
 .15
+
+#WEAPON
+.
+.Iron Rod
+.Nice and dangerous weapon
+.4
+.20
 
 #WEAPON
 .Fire Ball
 .Elven sharp Knife
 .Fine ancient work, the equally deadly for enemies
 .5
-.30
+.22
+
+#WEAPON
+.
+.Average Axe
+.Long time ago it was a great Axe
+.6
+.35
+
+#WEAPON
+.
+.Lance
+.Merely good knight's lance
+.7
+.40
+
+#WEAPON
+.
+.Huge Mace
+.Extremely heavy and dangerous steel mace
+.8
+.42
 
 #WEAPON
 .Frost Wave
@@ -26,7 +61,43 @@
 .9
 .50
 
+#WEAPON
+.
+.Hellfire Sword
+.Eternally burning sword from hell
+.10
+.60
+
+
 --------------------------------------------------------
+
+#ARMOR
+.
+.Rags
+.Old rags, used as armor
+.1
+.2
+
+#ARMOR
+.
+.Cloth vest
+.Ordinary peasant vest
+.2
+.5
+
+#ARMOR
+.
+.Leather Armor
+.High-quality and solid leather
+.3
+.10
+
+#ARMOR
+.
+.Metal Corset
+.Same like metal shell
+.1
+.5
 
 #ARMOR
 .
@@ -37,10 +108,24 @@
 
 #ARMOR
 .
-.Leather Armor
-.High-quality and solid leather
-.3
-.10
+.Plate Armor Knight
+.Strong armor of valiant knight
+.6
+.20
+
+#ARMOR
+.
+.Plate Armor Knight
+.Strong armor of valiant knight
+.6
+.20
+
+#ARMOR
+.
+.Plate Armor Knight
+.Strong armor of valiant knight
+.6
+.20
 
 #ARMOR
 .

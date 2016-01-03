@@ -12,6 +12,7 @@ public class RegExp {
     public static final String WEAPON = "(WEAPON)\\s*";
     public static final String ARMOR = "(ARMOR)\\s*";
     public static final String NAME = "^[a-zA-Z]{3,15}$";
+    public static final String ABC = "[aA]|[bB]|[cC]";
 
     public static Scanner scan = new Scanner(System.in);
 
