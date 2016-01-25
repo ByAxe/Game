@@ -52,7 +52,7 @@ public class BattleWatcher {
     @Around(value = "startBattle(hero)", argNames = "joinPoint,hero")
     public void battle(ProceedingJoinPoint joinPoint, Hero hero) {
 
-        /*TODO Now - monster will have equal level with Hero because them are barely 10*/
+        /*TODO Now - monster will have equal level to Hero because them are barely 10*/
 
 /*        int counter = 0;
 
@@ -74,10 +74,10 @@ public class BattleWatcher {
         EnumMap<TypeOfEquipment, IEquipment> eqMap = new EnumMap<>(TypeOfEquipment.class);
 
         (new EquipmentConfig()).weaponTable.entrySet().stream()
-                .filter(entry -> ((AbstractEquipment) entry.getValue()).getRequiredLevel() == (hero.getLevel()-1))
+                .filter(entry -> ((AbstractEquipment) entry.getValue()).getRequiredLevel() == (hero.getLevel() - 1))
                 .forEach(entry -> {
-            eqMap.put(((AbstractEquipment) entry.getValue()).getTypeOfEquipment(), entry.getValue());
-        });
+                    eqMap.put(((AbstractEquipment) entry.getValue()).getTypeOfEquipment(), entry.getValue());
+                });
 
         monster.setEquipmentMap(eqMap);
     }

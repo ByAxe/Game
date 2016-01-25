@@ -57,8 +57,8 @@ public class Game {
                 case "c":
                     /*TODO Add save logic*/
                     break;
-            }
-        }
+            } // end::Main question
+        } // end::Main loop
     }
 
 }

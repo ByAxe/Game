@@ -47,8 +47,8 @@ public class Hero extends AbstractHero {
 
     @Override
     public String checkInventory() {
-        return "\n\tWeapon: " + equipmentMap.get(TypeOfEquipment.WEAPON) +
-                "\n\tArmor: " + equipmentMap.get(TypeOfEquipment.ARMOR);
+        return "\n\tWeapon: " + (equipmentMap.get(TypeOfEquipment.WEAPON)).toString() +
+                "\n\tArmor: " + (equipmentMap.get(TypeOfEquipment.ARMOR)).toString();
     }
 
     @Override
