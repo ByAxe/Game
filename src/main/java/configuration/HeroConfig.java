@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import regular.expression.RegExp;
 
 import java.util.EnumMap;
+import java.util.HashMap;
 
 import static data.SystemData.MIN_LEVEL;
 
@@ -25,5 +26,14 @@ public class HeroConfig {
         equipmentMap.put(TypeOfEquipment.ARMOR, armor);
         return new Hero(equipmentMap, RegExp.checkOnCorrectValue("Hi. Please, enter your name:\t", RegExp.NAME),
                 MIN_LEVEL, 20, 100, 15, 15, null, 0);
+    }
+
+    @Bean
+    public HashMap<Byte, Integer> experienceTable() {
+        HashMap<Byte, Integer> requiredExperience = new HashMap<>();
+        for (byte i = 1; i <= 10; i++) {
+            requiredExperience.put(i, i * 100);
+        }
+        return requiredExperience;
     }
 }

@@ -1,9 +1,9 @@
 package aspects;
 
 import configuration.EquipmentConfig;
-import configuration.MonsterConfig;
 import creations.implementLevel.Hero;
 import creations.implementLevel.Monster;
+import data.SystemData;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
 import equipment.abstractLevel.AbstractEquipment;
@@ -20,6 +20,7 @@ import static data.SystemData.*;
 public class BattleWatcher {
 
     private Monster monster;
+
     private Hero hero;
 
     @Pointcut("execution(* creations.implementLevel.Hero.enter()) && target(hero)")
@@ -38,7 +39,9 @@ public class BattleWatcher {
             System.out.println("STR: " + hero.getStrength() + " AGL: " + hero.getAgility());
             System.out.println("-----------------------------------------------------------------------------------");
             result = joinPoint.proceed();
+
             createMonster();
+
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
@@ -49,28 +52,8 @@ public class BattleWatcher {
     public void startBattle(Hero hero) {
     }
 
-    @Around(value = "startBattle(hero)", argNames = "joinPoint,hero")
-    public void battle(ProceedingJoinPoint joinPoint, Hero hero) {
-
-        /*TODO Now - monster will have equal level to Hero because them are barely 10*/
-
-/*        int counter = 0;
-
-        monster = (Monster) (new MonsterConfig()).monstersTable.get(hero.getLevel());
-
-        EnumMap<TypeOfEquipment, IEquipment> equipment = new EnumMap<>(TypeOfEquipment.class);
-
-        for (Map.Entry<Integer, IEquipment> entry : (new EquipmentConfig()).weaponTable.entrySet()) {
-            if (((AbstractEquipment)entry.getValue()).getRequiredLevel() == hero.getLevel()){
-                equipment.put(++counter, entry.getValue());
-            }
-        }
-
-        monster.setEquipmentMap();*/
-    }
-
     private void createMonster() {
-        monster = (Monster) (new MonsterConfig()).monstersTable.get(chooseLevel(hero.getLevel()));
+        monster = (Monster) (new SystemData().monstersTable.get(chooseLevel(hero.getLevel())));
         EnumMap<TypeOfEquipment, IEquipment> eqMap = new EnumMap<>(TypeOfEquipment.class);
 
         (new EquipmentConfig()).weaponTable.entrySet().stream()

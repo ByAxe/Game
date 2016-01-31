@@ -2,8 +2,6 @@ package configuration;
 
 import creations.ICreation;
 import creations.implementLevel.Monster;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,10 +14,6 @@ import java.util.TreeMap;
 
 @Configuration
 public class MonsterConfig {
-
-    @Autowired
-    @Qualifier("monstersParser")
-    public TreeMap<Integer, ICreation> monstersTable;
 
     @Bean(name = "monstersParser")
     public TreeMap<Integer, ICreation> monstersParser() {

@@ -1,6 +1,5 @@
 import configuration.AppConfig;
 import creations.ICreation;
-import data.texts.Introduction;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import regular.expression.RegExp;
@@ -12,14 +11,15 @@ public class Game {
 
         ICreation hero = (ICreation) context.getBean("hero");
 
-        Thread intro = new Thread(new Introduction("Introduction"));
+/*        Thread intro = new Thread(new Introduction("Introduction"));
         intro.start();
 
         try {
             intro.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
+
         RegExp.checkOnCorrectValue("You see the entrance. Enter? (adventure start here)\n\t(yes) - ", RegExp.YES);
 
         System.out.println(hero.enter());

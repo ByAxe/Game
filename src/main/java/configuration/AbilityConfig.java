@@ -5,7 +5,6 @@ import abilities.implementLevel.constructive.NaturePower;
 import abilities.implementLevel.constructive.PlainHeal;
 import abilities.implementLevel.destructive.FireBall;
 import abilities.implementLevel.destructive.FrostWave;
-import data.SystemData;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,12 +12,6 @@ import java.util.HashMap;
 
 @Configuration
 public class AbilityConfig {
-    @Bean
-    public SystemData systemData() {
-        SystemData sd = new SystemData();
-        sd.fillMap();
-        return sd;
-    }
 
     @Bean
     public FireBall fireBall() {

@@ -8,8 +8,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @EnableAspectJAutoProxy
 public class AspectConfig {
-
-
     @Bean
     public BattleWatcher heroWatcher() {
         return new BattleWatcher();

@@ -1,11 +1,13 @@
 package data;
 
-import org.springframework.stereotype.Component;
+import creations.ICreation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.TreeMap;
 
-@Component
+
 public class SystemData {
 
     public static final double PERFORMANCE_FACTOR = 0.1;
@@ -22,16 +24,15 @@ public class SystemData {
     public static final byte MIN_LEVEL = 1;
     public static final byte MAX_LEVEL = 10;
 
-    private Map<Byte, Integer> requiredExperience;
+    @Autowired
+    @Qualifier("monstersParser")
+    public TreeMap<Integer, ICreation> monstersTable; /*TODO I get here - null!*/
 
-    public void fillMap() {
-        requiredExperience = new TreeMap<>();
-        for (byte i = 1; i <= 10; i++) {
-            requiredExperience.put(i, i * 100);
-        }
-    }
+    @Autowired
+    @Qualifier("experienceTable")
+    private HashMap<Byte, Integer> requiredExperience; /*TODO I get here - null!*/
 
-    public Map<Byte, Integer> getRequiredExperience() {
-        return requiredExperience;
+    public Integer getRequiredExperience(Byte level) {
+        return requiredExperience.get(level);
     }
 }
