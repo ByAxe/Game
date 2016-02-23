@@ -2,15 +2,16 @@ package creations.abstractLevel;
 
 import creations.ICreation;
 import data.TypeOfEquipment;
+import equipment.IEquipment;
 import equipment.abstractLevel.AbstractArmor;
 import equipment.abstractLevel.AbstractEquipment;
 import equipment.abstractLevel.AbstractWeapon;
-import equipment.IEquipment;
 
 import java.util.EnumMap;
 import java.util.Map;
 
-import static data.SystemData.*;
+import static data.SystemData.PERFORMANCE_FACTOR;
+import static data.SystemData.randomDistribution;
 
 public abstract class AbstractCreation implements ICreation {
 
@@ -58,10 +59,6 @@ public abstract class AbstractCreation implements ICreation {
 
         return (isAbilityInArmor ? ((AbstractEquipment) armor).getAbility().use() : 0)
                 + protection * (int) (PERFORMANCE_FACTOR * this.getAgility()) + randomDistribution();
-    }
-
-    public int randomDistribution() {
-        return MIN_RANDOM_DAMAGE + (int) (Math.random() * ((MAX_RANDOM_DAMAGE - MIN_RANDOM_DAMAGE) + 1));
     }
 
     public Map<TypeOfEquipment, IEquipment> getEquipmentMap() {

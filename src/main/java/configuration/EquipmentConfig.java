@@ -32,6 +32,7 @@ public class EquipmentConfig {
     @Qualifier("armorParser")
     public TreeMap<Integer, IEquipment> armorTable;
 
+    /*TODO move this path into SystemData*/
     private Path relativePath = Paths.get("src/main/java/data", "equipment.txt");
     private String fileName = relativePath.toString();
 
@@ -70,6 +71,7 @@ public class EquipmentConfig {
 
                     typeOfEquipment = (checkOnPattern(bufferedReader.readLine(), WEAPON) ?  /*Will find WEAPON or ARMOR*/
                             TypeOfEquipment.WEAPON : TypeOfEquipment.ARMOR);
+
                     if (typeOfEquipment == TypeOfEquipment.ARMOR) continue;
 
                     ability = findEqualsTitle(bufferedReader.readLine().replace(".", ""));  /*Will find "" or Title of the Ability*/
@@ -92,7 +94,6 @@ public class EquipmentConfig {
 
     @Bean(name = "armorParser")
     @DependsOn("abilityMap")
-
     public TreeMap<Integer, IEquipment> armorParser() {
 
         TreeMap<Integer, IEquipment> armorTable = new TreeMap<>();
@@ -123,7 +124,6 @@ public class EquipmentConfig {
         }
         numberOfCurrentEquipment = 0;
         return armorTable;
-
     }
 
     public IAbility findEqualsTitle(String info) {

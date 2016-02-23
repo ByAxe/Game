@@ -19,6 +19,7 @@ public class MonsterConfig {
     public TreeMap<Integer, ICreation> monstersParser() {
         TreeMap<Integer, ICreation> monstersTable = new TreeMap<>();
 
+        /*TODO move this path into SystemData*/
         Path relativePath = Paths.get("src/main/java/data", "monsters.txt");
         String fileName = relativePath.toString();
 

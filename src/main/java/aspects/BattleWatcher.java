@@ -11,6 +11,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.EnumMap;
 
@@ -20,8 +21,13 @@ import static data.SystemData.*;
 public class BattleWatcher {
 
     private Monster monster;
-
     private Hero hero;
+
+    @Autowired
+    private SystemData systemData;
+
+    @Autowired
+    private EquipmentConfig equipmentConfig;
 
     @Pointcut("execution(* creations.implementLevel.Hero.enter()) && target(hero)")
     public void enter(Hero hero) {
@@ -40,7 +46,6 @@ public class BattleWatcher {
             System.out.println("-----------------------------------------------------------------------------------");
             result = joinPoint.proceed();
 
-            createMonster();
 
         } catch (Throwable throwable) {
             throwable.printStackTrace();
@@ -48,15 +53,26 @@ public class BattleWatcher {
         return result;
     }
 
+    @Around(value = "startBattle(hero)", argNames = "pjp,hero")
+    public Object watchBattle(ProceedingJoinPoint pjp, Hero hero) {
+        try {
+            createMonster();
+            pjp.proceed();
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+        return null;
+    }
+
     @Pointcut("execution(* creations.implementLevel.Hero.startBattle()) && target(hero)")
     public void startBattle(Hero hero) {
     }
 
     private void createMonster() {
-        monster = (Monster) (new SystemData().monstersTable.get(chooseLevel(hero.getLevel())));
+        monster = (Monster) (systemData.monstersTable.get(chooseLevel(hero.getLevel())));
         EnumMap<TypeOfEquipment, IEquipment> eqMap = new EnumMap<>(TypeOfEquipment.class);
 
-        (new EquipmentConfig()).weaponTable.entrySet().stream()
+        equipmentConfig.weaponTable.entrySet().stream()
                 .filter(entry -> ((AbstractEquipment) entry.getValue()).getRequiredLevel() == (hero.getLevel() - 1))
                 .forEach(entry -> {
                     eqMap.put(((AbstractEquipment) entry.getValue()).getTypeOfEquipment(), entry.getValue());
