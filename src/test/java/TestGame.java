@@ -3,6 +3,7 @@
 * */
 
 import configuration.AppConfig;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -12,5 +13,8 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 @ContextConfiguration(classes = AppConfig.class, loader = AnnotationConfigContextLoader.class)
 public class TestGame {
 
-    /*TODO these tests sticks while working*/
+    @Test
+    public void testLogic(){
+        
+    }
 }

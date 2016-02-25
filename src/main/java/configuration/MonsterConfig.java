@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.TreeMap;
+
+import static data.SystemData.FILE_MONSTERS;
 
 @Configuration
 public class MonsterConfig {
@@ -19,13 +19,9 @@ public class MonsterConfig {
     public TreeMap<Integer, ICreation> monstersParser() {
         TreeMap<Integer, ICreation> monstersTable = new TreeMap<>();
 
-        /*TODO move this path into SystemData*/
-        Path relativePath = Paths.get("src/main/java/data", "monsters.txt");
-        String fileName = relativePath.toString();
-
         int charSharp;
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(FILE_MONSTERS))) {
             do {
                 charSharp = bufferedReader.read();
 

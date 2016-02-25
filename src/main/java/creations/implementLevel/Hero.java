@@ -46,9 +46,8 @@ public class Hero extends AbstractHero {
     }
 
     @Override
-    public String checkInventory() {
-        return "\n\tWeapon: " + (equipmentMap.get(TypeOfEquipment.WEAPON)).toString() +
-                "\n\tArmor: " + (equipmentMap.get(TypeOfEquipment.ARMOR)).toString();
+    public void checkInventory() {
+
     }
 
     @Override
@@ -62,17 +61,17 @@ public class Hero extends AbstractHero {
     }
 
     @Override
-    public void changeEquipment(TypeOfEquipment typeOfEquipment, IEquipment equipment) {
+    public void changeEquipment(final TypeOfEquipment typeOfEquipment, final IEquipment equipment) {
         this.equipmentMap.put(typeOfEquipment, equipment);
     }
 
     @Override
-    public void useAbility(String title) {
+    public void useAbility(final String title) {
         this.abilities.get(title);
     }
 
     @Override
-    public void addAbility(String title, IAbility ability) {
+    public void addAbility(final String title, final IAbility ability) {
         this.abilities.put(title, ability);
     }
 

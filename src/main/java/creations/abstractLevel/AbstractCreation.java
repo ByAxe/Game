@@ -3,15 +3,14 @@ package creations.abstractLevel;
 import creations.ICreation;
 import data.TypeOfEquipment;
 import equipment.IEquipment;
-import equipment.abstractLevel.AbstractArmor;
-import equipment.abstractLevel.AbstractEquipment;
-import equipment.abstractLevel.AbstractWeapon;
 
 import java.util.EnumMap;
 import java.util.Map;
 
 import static data.SystemData.PERFORMANCE_FACTOR;
 import static data.SystemData.randomDistribution;
+import static data.TypeOfEquipment.ARMOR;
+import static data.TypeOfEquipment.WEAPON;
 
 public abstract class AbstractCreation implements ICreation {
 
@@ -42,22 +41,22 @@ public abstract class AbstractCreation implements ICreation {
 
     @Override
     public int attack() {
-        IEquipment weapon = this.equipmentMap.get(TypeOfEquipment.WEAPON);
-        boolean isAbilityInWeapon = null != ((AbstractEquipment) weapon).getAbility();
-        int damage = ((AbstractWeapon) weapon).getDamage();
+        IEquipment weapon = this.equipmentMap.get(WEAPON);
+        boolean isAbilityInWeapon = null != weapon.getAbility();
+        int damage = weapon.getDamage();
 
-        return (isAbilityInWeapon ? ((AbstractEquipment) weapon).getAbility().use() : 0)
+        return (isAbilityInWeapon ? weapon.getAbility().use() : 0)
                 + damage * (int) (PERFORMANCE_FACTOR * this.getStrength()) + randomDistribution();
 
     }
 
     @Override
     public int resistance() {
-        IEquipment armor = this.equipmentMap.get(TypeOfEquipment.ARMOR);
-        int protection = ((AbstractArmor) armor).getProtection();
-        boolean isAbilityInArmor = null != ((AbstractEquipment) armor).getAbility();
+        IEquipment armor = this.equipmentMap.get(ARMOR);
+        int protection = armor.getProtection();
+        boolean isAbilityInArmor = null != armor.getAbility();
 
-        return (isAbilityInArmor ? ((AbstractEquipment) armor).getAbility().use() : 0)
+        return (isAbilityInArmor ? armor.getAbility().use() : 0)
                 + protection * (int) (PERFORMANCE_FACTOR * this.getAgility()) + randomDistribution();
     }
 

@@ -2,14 +2,17 @@ import configuration.AppConfig;
 import creations.ICreation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import regular.expression.RegExp;
+
+import static data.SystemData.QUESTION_WHEN_ENTER;
+import static regular.expression.RegExp.*;
 
 public class Game {
     public static void main(String[] args) {
-        ApplicationContext context =
+        final ApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
 
-        ICreation hero = (ICreation) context.getBean("hero");
+        final ICreation hero = (ICreation) context.getBean("hero");
+        final Cycle cycle = new Cycle();
 
 /*        Thread intro = new Thread(new Introduction("Introduction"));
         intro.start();
@@ -20,13 +23,11 @@ public class Game {
             e.printStackTrace();
         }*/
 
-        RegExp.checkOnCorrectValue("You see the entrance. Enter? (adventure start here)\n\t(yes) - ", RegExp.YES);
+        checkOnCorrectValue("You see the entrance. Enter? (adventure start here)\n\t(yes) - ", YES);
 
         System.out.println(hero.enter());
 
-
-        for (int i = 0; true; ++i) {
-            String actions;
+        for (int i = 0; ; ++i) {
             if (i == 1) {
                 /*Thread firstMeeting = new Thread(new FirstMeeting("First Meeting"));
                 firstMeeting.start();
@@ -37,28 +38,9 @@ public class Game {
                     e.printStackTrace();
                 }*/
             }
-            actions = RegExp.checkOnCorrectValue("What are you going to do now?" +
-                            "\n\t(a) Enter the room" +
-                            "\n\t(b) Check inventory" +
-//                    "\n\t(c) Save & Exit" +
-                            "\n\t\t - ",
-                    RegExp.ABC);
 
-            switch (actions) {
-                case "a":
-                    System.out.println(hero.enter());
-
-                    hero.startBattle();
-
-                    break;
-                case "b":
-                    System.out.println(hero.checkInventory());
-                    break;
-                case "c":
-                    /*TODO Add save logic*/
-                    break;
-            } // end::Main question
-        } // end::Main loop
+            cycle.choice(checkOnCorrectValue(QUESTION_WHEN_ENTER, A_B_C), hero);
+        }
     }
 
 }

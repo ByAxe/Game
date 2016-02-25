@@ -15,6 +15,7 @@ public abstract class AbstractWeapon extends AbstractEquipment {
 
     }
 
+    @Override
     public int getDamage() {
         return damage;
     }

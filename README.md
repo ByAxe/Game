@@ -1,13 +1,14 @@
-#Simple Console Game
-__________________________
+# Console Game
 
-##-This project is test task of one company. 
+## -This project is test task of one company.
+### --Upd. Now it is my course work 
 
-###Let's overview the structure (v0.4.0)
+### Let's overview the structure (v0.4.1)
 ============================================================================================
 
 ##- src/main/java |
     - Game.java - main method based here
+    - Cycle.java - contains the main cycle of choices 
 
     - abilities  - **Here is all our abilities**
         - IAbility - *interface*
@@ -22,13 +23,14 @@ __________________________
                 - FrostWave.java
             
     - aspects - **Here is the all aspects that should watch for the actions without explicit influence on the logic**
-       - BattleWatcher.java
+       - BattleWatcher.java - **Looks for the battle and hero moves**
+       - InventoryWatcher.java - **Looks for the hero's inventory**
     
     - configuration - **Spring Configuration files**
         - AppConfig.java - *main configuration class*
         - AbilityConfig.java
         - EquipmentConfig.java
-        - HeroConfig.java
+        - HeroConfig.java - **creates the hero into Spring context
         - MonsterConfig.java
         - AspectConfig.java
         
@@ -43,16 +45,17 @@ __________________________
             - Hero.java - *implementation of all these abstract blocks for Hero*
     
     - data - **Important data**
-        - SystemData.java - *Information about required experience for hero levels*
+        - SystemData.java - *Data class that contains a lot of information and common variables*
         - TypeOfEquipment.java - *Enum type of equipment (WEAPON & ARMOR)*
         - equipment.txt  - *data on specific units of equipment*
         - monsters.txt - *data on specific units of monsters*
         - texts
-            - Introduction.java
+            - Introduction.java - *introduction text*
             - FirstMeeting.java
+            - InventoryInformation.java - *Include methods that output information about hero*
         
     - equipment - **Equipment of the Hero and Monsters**
-        - IEquipment.java - *markdown interface*
+        - IEquipment.java - *interface that contains approximately all necessary methods for Equipment*
         - abstractLevel
             - AbstractEquipment.java - *main abstract class in equipment' logic*
             - AbstractWeapon.java

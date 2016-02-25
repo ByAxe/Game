@@ -16,11 +16,10 @@ public interface ICreation {
     }
 
     default String escape() {
-        return null;
+        return "Let's get out of here";
     }
 
-    default String checkInventory() {
-        return null;
+    default void checkInventory() {
     }
 
     default void changeEquipment(TypeOfEquipment typeOfEquipment, IEquipment equipment) {
@@ -29,10 +28,10 @@ public interface ICreation {
     default void showAbilities() {
     }
 
-    default void useAbility(String title) {
+    default void useAbility(final String title) {
     }
 
-    default void addAbility(String title, IAbility ability) {
+    default void addAbility(final String title, final IAbility ability) {
     }
 
     default void startBattle() {

@@ -14,11 +14,10 @@ import org.springframework.context.annotation.DependsOn;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Map;
 import java.util.TreeMap;
 
+import static data.SystemData.FILE_EQUIPMENT;
 import static regular.expression.RegExp.*;
 
 @Configuration
@@ -32,14 +31,9 @@ public class EquipmentConfig {
     @Qualifier("armorParser")
     public TreeMap<Integer, IEquipment> armorTable;
 
-    /*TODO move this path into SystemData*/
-    private Path relativePath = Paths.get("src/main/java/data", "equipment.txt");
-    private String fileName = relativePath.toString();
-
     private TypeOfEquipment typeOfEquipment;
     private IAbility ability;
     private int charSharp;
-    private int numberOfCurrentEquipment = 0;
     private String title;
     private String description;
     private int requiredLevel;
@@ -64,7 +58,7 @@ public class EquipmentConfig {
 
         TreeMap<Integer, IEquipment> weaponTable = new TreeMap<>();
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(FILE_EQUIPMENT))) {
             do {
                 charSharp = bufferedReader.read();
                 if (charSharp == '#') {
@@ -88,7 +82,6 @@ public class EquipmentConfig {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        numberOfCurrentEquipment = 0;
         return weaponTable;
     }
 
@@ -98,13 +91,13 @@ public class EquipmentConfig {
 
         TreeMap<Integer, IEquipment> armorTable = new TreeMap<>();
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(FILE_EQUIPMENT))) {
             do {
                 charSharp = bufferedReader.read();
                 if (charSharp == '#') {
 
                     typeOfEquipment = (checkOnPattern(bufferedReader.readLine(), ARMOR) ?  /*Will find WEAPON or ARMOR*/
-                            TypeOfEquipment.WEAPON : TypeOfEquipment.ARMOR);
+                            TypeOfEquipment.ARMOR : TypeOfEquipment.WEAPON);
 
                     if (typeOfEquipment == TypeOfEquipment.WEAPON) continue;
 
@@ -122,7 +115,6 @@ public class EquipmentConfig {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        numberOfCurrentEquipment = 0;
         return armorTable;
     }
 

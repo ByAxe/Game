@@ -15,6 +15,7 @@ public abstract class AbstractArmor extends AbstractEquipment {
 
     }
 
+    @Override
     public int getProtection() {
         return protection;
     }
