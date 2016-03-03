@@ -1,6 +1,7 @@
 package configuration;
 
 import aspects.BattleWatcher;
+import aspects.HeroMovesWatcher;
 import aspects.InventoryWatcher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,5 +18,10 @@ public class AspectConfig {
     @Bean
     public InventoryWatcher inventoryWatcher() {
         return new InventoryWatcher();
+    }
+
+    @Bean
+    public HeroMovesWatcher heroMovesWatcher(){
+        return new HeroMovesWatcher();
     }
 }

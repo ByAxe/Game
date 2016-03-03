@@ -3,7 +3,7 @@
 ## -This project is test task of one company.
 ### --Upd. Now it is my course work 
 
-### Let's overview the structure (v0.4.1)
+### Let's overview the structure (v0.4.2)
 ============================================================================================
 
 ##- src/main/java |
@@ -25,6 +25,7 @@
     - aspects - **Here is the all aspects that should watch for the actions without explicit influence on the logic**
        - BattleWatcher.java - **Looks for the battle and hero moves**
        - InventoryWatcher.java - **Looks for the hero's inventory**
+       - HeroMovesWatcher.java - **Looks for the hero's movement**
     
     - configuration - **Spring Configuration files**
         - AppConfig.java - *main configuration class*

@@ -5,7 +5,6 @@ import creations.ICreation;
 import creations.implementLevel.Hero;
 import creations.implementLevel.Monster;
 import equipment.IEquipment;
-import equipment.abstractLevel.AbstractEquipment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -41,8 +40,7 @@ public class SystemData {
             "\n\t(b) Check inventory" +
             "\n\t(c) Save & Exit" +
             "\n\t\t - ";
-    public static final String QUESTION_FIGHT_OR_RUN = "What are you going to do now?\n" +
-            "Start to fight, or run out?";
+    public static final String QUESTION_FIGHT_OR_RUN = "Start to fight, or run out?\t";
 
     @Autowired
     @Qualifier("monstersParser")
@@ -101,10 +99,8 @@ public class SystemData {
         EnumMap<TypeOfEquipment, IEquipment> eqMap = new EnumMap<>(TypeOfEquipment.class);
 
         equipmentConfig.weaponTable.entrySet().stream()
-                .filter(entry -> ((AbstractEquipment) entry.getValue()).getRequiredLevel() == (hero.getLevel() - 1))
-                .forEach(entry -> {
-                    eqMap.put(((AbstractEquipment) entry.getValue()).getTypeOfEquipment(), entry.getValue());
-                });
+                .filter(entry -> entry.getValue().getRequiredLevel() == (hero.getLevel() - 1))
+                .forEach(entry -> eqMap.put(entry.getValue().getTypeOfEquipment(), entry.getValue()));
 
         monster.setEquipmentMap(eqMap);
         return monster;

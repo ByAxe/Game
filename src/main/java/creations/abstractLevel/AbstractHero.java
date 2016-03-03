@@ -38,4 +38,5 @@ public abstract class AbstractHero extends AbstractCreation {
     }
 
 
+    /*TODO add inventory for collecting equipment*/
 }

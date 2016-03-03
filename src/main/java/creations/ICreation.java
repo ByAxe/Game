@@ -15,8 +15,8 @@ public interface ICreation {
         return null;
     }
 
-    default String escape() {
-        return "Let's get out of here";
+    default boolean escape() {
+        return true;
     }
 
     default void checkInventory() {

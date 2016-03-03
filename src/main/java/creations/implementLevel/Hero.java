@@ -37,7 +37,7 @@ public class Hero extends AbstractHero {
 
     @Override
     public String enter() {
-        return "\nGo ahead!";
+        return "";
     }
 
     @Override
@@ -53,11 +53,6 @@ public class Hero extends AbstractHero {
     @Override
     public void showAbilities() {
 
-    }
-
-    @Override
-    public String escape() {
-        return "\nLet's get out of here!";
     }
 
     @Override
