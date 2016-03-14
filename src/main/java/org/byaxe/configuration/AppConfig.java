@@ -15,8 +15,7 @@ public class AppConfig {
         return new SystemData();
     }
 
-/*
-    @Bean
+/*    @Bean
     public DataSource dataSource(){
         BasicDataSource ds = new BasicDataSource();
 
@@ -65,14 +64,13 @@ public class AppConfig {
 
     @PersistenceContext(unitName="GAME_PERSISTENCE_UNIT")
     private EntityManager entityManager;
-*/
 
-/*
+
     public static void main(String[] args) {
         final ApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
         System.out.println("sds");
     }
-*/
+    */
 
 }
