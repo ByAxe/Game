@@ -1,4 +1,4 @@
-package org.byaxe;
+package org.byaxe.configuration;
 
 import org.byaxe.aspects.BattleWatcher;
 import org.byaxe.aspects.HeroMovesWatcher;

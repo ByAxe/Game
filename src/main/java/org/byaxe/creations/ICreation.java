@@ -1,6 +1,7 @@
-package org.byaxe;
+package org.byaxe.creations;
 
 import org.byaxe.abilities.IAbility;
+import org.byaxe.data.TypeOfEquipment;
 import org.byaxe.equipment.IEquipment;
 
 public interface ICreation {

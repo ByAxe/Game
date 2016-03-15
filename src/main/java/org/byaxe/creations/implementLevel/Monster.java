@@ -1,7 +1,7 @@
-package org.byaxe.implementLevel;
+package org.byaxe.creations.implementLevel;
 
-import org.byaxe.abstractLevel.AbstractMonster;
-import org.byaxe.TypeOfEquipment;
+import org.byaxe.creations.abstractLevel.AbstractMonster;
+import org.byaxe.data.TypeOfEquipment;
 import org.byaxe.equipment.IEquipment;
 
 import java.util.EnumMap;

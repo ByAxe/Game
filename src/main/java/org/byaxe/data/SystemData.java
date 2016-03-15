@@ -1,10 +1,10 @@
-package org.byaxe;
+package org.byaxe.data;
 
-import org.byaxe.abstractLevel.AbstractCreation;
-import org.byaxe.implementLevel.Hero;
-import org.byaxe.implementLevel.Monster;
+import org.byaxe.configuration.EquipmentConfig;
+import org.byaxe.creations.ICreation;
+import org.byaxe.creations.implementLevel.Hero;
+import org.byaxe.creations.implementLevel.Monster;
 import org.byaxe.equipment.IEquipment;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -14,9 +14,6 @@ import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.TreeMap;
 
-import static org.byaxe.expression.RegExp.NUMERIC;
-import static org.byaxe.expression.RegExp.checkOnCorrectValue;
-
 @Component
 public class SystemData {
 
@@ -25,7 +22,6 @@ public class SystemData {
     public static final byte MIN_RANDOM_DAMAGE = -5;
     public static final byte MAX_RANDOM_DAMAGE = 5;
 
-    /*TODO rename this strange variables*/
     public static final byte MIN_RAND_LEVEL_LOW = -1;
     public static final byte MAX_RAND_LEVEL_LOW = 1;
 
@@ -35,8 +31,8 @@ public class SystemData {
     public static final byte MIN_LEVEL = 1;
     public static final byte MAX_LEVEL = 10;
 
-    public static final String FILE_EQUIPMENT = Paths.get("src/main/java/data", "equipment.txt").toString();
-    public static final String FILE_MONSTERS = Paths.get("src/main/java/data", "monsters.txt").toString();
+    public static final String FILE_EQUIPMENT = Paths.get("src/main/resources", "equipment.txt").toString();
+    public static final String FILE_MONSTERS = Paths.get("src/main/resources", "monsters.txt").toString();
 
 
     public static final String QUESTION_WHEN_ENTER = "What are you going to do now?" +
@@ -45,9 +41,6 @@ public class SystemData {
             "\n\t(c) Save & Exit" +
             "\n\t\t - ";
     public static final String QUESTION_FIGHT_OR_RUN = "Start to fight, or run out?\t";
-
-    private static final String QUESTION_HIT_OR_ABILITY = "\nDo you want to hit your enemy or choose some ability?" +
-            "\n\t(1 - hit, 0 - ability)\t - ";
 
     @Autowired
     @Qualifier("monstersParser")
@@ -122,25 +115,5 @@ public class SystemData {
         System.out.println("-----------------------------------------------------------------------------------");
     }
 
-    public String infoAboutThatCreation(final AbstractCreation creation) {
-        String result = "\n";
 
-        if (creation instanceof Hero) result += "You have ";
-        else result += creation.getName() + " ";
-
-        result += "\tHP " + creation.getCurrentHP() + "/MP " + creation.getCurrentMP() + "\n";
-        return result;
-    }
-
-    public boolean hitIfTrue() {
-        return "1".equals(checkOnCorrectValue(QUESTION_HIT_OR_ABILITY, NUMERIC));
-    }
-
-
-    @Autowired
-    private SessionFactory sessionFactory;
-
-    public void test(){
-        System.out.println(sessionFactory);
-    }
 }

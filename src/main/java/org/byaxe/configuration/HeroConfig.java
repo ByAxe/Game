@@ -1,19 +1,20 @@
-package org.byaxe;
+package org.byaxe.configuration;
 
-import org.byaxe.implementLevel.Hero;
+import org.byaxe.creations.implementLevel.Hero;
+import org.byaxe.data.TypeOfEquipment;
 import org.byaxe.equipment.IEquipment;
 import org.byaxe.equipment.implementLevel.Armor;
 import org.byaxe.equipment.implementLevel.Weapon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.byaxe.expression.RegExp;
+import org.byaxe.regular.expression.RegExp;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 
-import static org.byaxe.SystemData.MIN_LEVEL;
-import static org.byaxe.TypeOfEquipment.*;
+import static org.byaxe.data.SystemData.MIN_LEVEL;
+import static org.byaxe.data.TypeOfEquipment.*;
 
 @Configuration
 public class HeroConfig {

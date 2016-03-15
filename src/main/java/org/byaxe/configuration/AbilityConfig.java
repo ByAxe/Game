@@ -1,4 +1,4 @@
-package org.byaxe;
+package org.byaxe.configuration;
 
 import org.byaxe.abilities.IAbility;
 import org.byaxe.abilities.implementLevel.constructive.NaturePower;

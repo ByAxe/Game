@@ -9,7 +9,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "weapon")
-public class Weapon extends AbstractEntity {
+public class WeaponEntity extends AbstractEntity {
 
     private String title;
     private String description;

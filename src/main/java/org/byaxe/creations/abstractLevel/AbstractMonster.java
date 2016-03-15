@@ -1,6 +1,6 @@
-package org.byaxe.abstractLevel;
+package org.byaxe.creations.abstractLevel;
 
-import org.byaxe.TypeOfEquipment;
+import org.byaxe.data.TypeOfEquipment;
 import org.byaxe.equipment.IEquipment;
 
 import java.util.EnumMap;

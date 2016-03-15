@@ -1,16 +1,16 @@
 package org.byaxe.aspects;
 
-import org.byaxe.implementLevel.Hero;
-import org.byaxe.implementLevel.Monster;
-import org.byaxe.SystemData;
+import org.byaxe.creations.implementLevel.Hero;
+import org.byaxe.creations.implementLevel.Monster;
+import org.byaxe.data.SystemData;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.byaxe.SystemData.QUESTION_FIGHT_OR_RUN;
-import static org.byaxe.expression.RegExp.FIGHT_IF_TRUE;
-import static org.byaxe.expression.RegExp.checkOnCorrectValue;
+import static org.byaxe.data.SystemData.QUESTION_FIGHT_OR_RUN;
+import static org.byaxe.regular.expression.RegExp.FIGHT_IF_TRUE;
+import static org.byaxe.regular.expression.RegExp.checkOnCorrectValue;
 
 @Aspect
 public class BattleWatcher {
@@ -20,7 +20,7 @@ public class BattleWatcher {
     @Autowired
     private SystemData systemData;
 
-    @Pointcut("execution(* org.byaxe.implementLevel.Hero.startBattle()) && target(hero)")
+    @Pointcut("execution(* org.byaxe.creations.implementLevel.Hero.startBattle()) && target(hero)")
     public void startBattle(Hero hero) {
     }
 

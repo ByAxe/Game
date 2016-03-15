@@ -1,10 +1,10 @@
-package org.byaxe;
+package org.byaxe.data;
 
-import org.byaxe.implementLevel.Hero;
+import org.byaxe.creations.implementLevel.Hero;
 import org.byaxe.equipment.IEquipment;
 
-import static org.byaxe.TypeOfEquipment.ARMOR;
-import static org.byaxe.TypeOfEquipment.WEAPON;
+import static org.byaxe.data.TypeOfEquipment.ARMOR;
+import static org.byaxe.data.TypeOfEquipment.WEAPON;
 
 public class InventoryInformation {
 

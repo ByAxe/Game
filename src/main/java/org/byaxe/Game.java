@@ -1,10 +1,12 @@
 package org.byaxe;
 
+import org.byaxe.configuration.AppConfig;
+import org.byaxe.creations.ICreation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import static org.byaxe.SystemData.QUESTION_WHEN_ENTER;
-import static org.byaxe.expression.RegExp.*;
+import static org.byaxe.data.SystemData.QUESTION_WHEN_ENTER;
+import static org.byaxe.regular.expression.RegExp.*;
 
 public class Game {
     public static void main(String[] args) {

@@ -7,20 +7,20 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "heroes")
-public class Hero extends AbstractEntity {
+public class HeroEntity extends AbstractEntity {
 
     private String name;
     private int lvl;
     private int experience;
-    private Weapon weapon;
+    private WeaponEntity weapon;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "weapon")
-    public Weapon getWeapon() {
+    public WeaponEntity getWeapon() {
         return weapon;
     }
 
-    public void setWeapon(Weapon weapon) {
+    public void setWeapon(WeaponEntity weapon) {
         this.weapon = weapon;
     }
 

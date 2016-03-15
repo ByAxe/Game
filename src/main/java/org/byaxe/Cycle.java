@@ -1,5 +1,7 @@
 package org.byaxe;
 
+import org.byaxe.creations.ICreation;
+
 public class Cycle {
 
     public void choice(final String answer, final ICreation hero) {

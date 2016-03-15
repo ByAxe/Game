@@ -1,16 +1,16 @@
-package org.byaxe.abstractLevel;
+package org.byaxe.creations.abstractLevel;
 
-import org.byaxe.ICreation;
-import org.byaxe.TypeOfEquipment;
+import org.byaxe.creations.ICreation;
+import org.byaxe.data.TypeOfEquipment;
 import org.byaxe.equipment.IEquipment;
 
 import java.util.EnumMap;
 import java.util.Map;
 
-import static org.byaxe.SystemData.PERFORMANCE_FACTOR;
-import static org.byaxe.SystemData.randomDistribution;
-import static org.byaxe.TypeOfEquipment.ARMOR;
-import static org.byaxe.TypeOfEquipment.WEAPON;
+import static org.byaxe.data.SystemData.PERFORMANCE_FACTOR;
+import static org.byaxe.data.SystemData.randomDistribution;
+import static org.byaxe.data.TypeOfEquipment.ARMOR;
+import static org.byaxe.data.TypeOfEquipment.WEAPON;
 
 public abstract class AbstractCreation implements ICreation {
 
@@ -47,6 +47,7 @@ public abstract class AbstractCreation implements ICreation {
 
         return (isAbilityInWeapon ? weapon.getAbility().use() : 0)
                 + damage * (int) (PERFORMANCE_FACTOR * this.getStrength()) + randomDistribution();
+
     }
 
     @Override

@@ -1,7 +1,7 @@
 package org.byaxe.equipment;
 
 import org.byaxe.abilities.IAbility;
-import org.byaxe.TypeOfEquipment;
+import org.byaxe.data.TypeOfEquipment;
 
 public interface IEquipment {
     IAbility getAbility();

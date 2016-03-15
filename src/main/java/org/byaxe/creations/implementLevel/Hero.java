@@ -1,8 +1,8 @@
-package org.byaxe.implementLevel;
+package org.byaxe.creations.implementLevel;
 
 import org.byaxe.abilities.IAbility;
-import org.byaxe.abstractLevel.AbstractHero;
-import org.byaxe.TypeOfEquipment;
+import org.byaxe.creations.abstractLevel.AbstractHero;
+import org.byaxe.data.TypeOfEquipment;
 import org.byaxe.equipment.IEquipment;
 import org.springframework.stereotype.Component;
 

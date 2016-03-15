@@ -1,4 +1,4 @@
-package org.byaxe;
+package org.byaxe.data;
 
 public enum TypeOfEquipment {
     WEAPON, ARMOR;

@@ -1,17 +1,17 @@
 package org.byaxe.aspects;
 
-import org.byaxe.implementLevel.Hero;
+import org.byaxe.creations.implementLevel.Hero;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
-import static org.byaxe.InventoryInformation.additionalInformationAboutArmor;
-import static org.byaxe.InventoryInformation.additionalInformationAboutWeapon;
+import static org.byaxe.data.InventoryInformation.additionalInformationAboutArmor;
+import static org.byaxe.data.InventoryInformation.additionalInformationAboutWeapon;
 
 @Aspect
 public class InventoryWatcher {
 
-    @Pointcut("execution(* org.byaxe.implementLevel.Hero.checkInventory()) && target(hero)")
+    @Pointcut("execution(* org.byaxe.creations.implementLevel.Hero.checkInventory()) && target(hero)")
     public void inventory(Hero hero) {
     }
 

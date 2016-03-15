@@ -1,25 +1,12 @@
-package org.byaxe;
+package org.byaxe.configuration;
 
-import org.apache.commons.dbcp.BasicDataSource;
-import org.hibernate.jpa.HibernatePersistenceProvider;
-import org.springframework.context.ApplicationContext;
+import org.byaxe.data.SystemData;
 import org.springframework.context.annotation.*;
-import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.orm.jpa.JpaVendorAdapter;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
-import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.Map;
 
 @Configuration
 @Import({EquipmentConfig.class, HeroConfig.class, AspectConfig.class,
         MonsterConfig.class, AbilityConfig.class})
-//@ImportResource("classpath*:hibernate_config.xml")
+@ImportResource("classpath*:hibernate-config.xml")
 public class AppConfig {
 
     @Bean
@@ -28,6 +15,7 @@ public class AppConfig {
         return new SystemData();
     }
 
+/*
     @Bean
     public DataSource dataSource(){
         BasicDataSource ds = new BasicDataSource();
@@ -77,11 +65,14 @@ public class AppConfig {
 
     @PersistenceContext(unitName="GAME_PERSISTENCE_UNIT")
     private EntityManager entityManager;
+*/
 
+/*
     public static void main(String[] args) {
         final ApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
         System.out.println("sds");
     }
+*/
 
 }

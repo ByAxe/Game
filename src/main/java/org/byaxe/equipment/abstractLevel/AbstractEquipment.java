@@ -1,7 +1,7 @@
 package org.byaxe.equipment.abstractLevel;
 
 import org.byaxe.abilities.IAbility;
-import org.byaxe.TypeOfEquipment;
+import org.byaxe.data.TypeOfEquipment;
 import org.byaxe.equipment.IEquipment;
 
 public abstract class AbstractEquipment implements IEquipment {

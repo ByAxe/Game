@@ -1,4 +1,4 @@
-package org.byaxe.texts;
+package org.byaxe.data.texts;
 
 public class FirstMeeting implements Runnable {
 

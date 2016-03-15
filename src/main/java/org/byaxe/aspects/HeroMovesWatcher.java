@@ -1,7 +1,7 @@
 package org.byaxe.aspects;
 
-import org.byaxe.implementLevel.Hero;
-import org.byaxe.SystemData;
+import org.byaxe.creations.implementLevel.Hero;
+import org.byaxe.data.SystemData;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import static org.byaxe.expression.RegExp.YES_NO;
-import static org.byaxe.expression.RegExp.checkOnCorrectValue;
+import static org.byaxe.regular.expression.RegExp.YES_NO;
+import static org.byaxe.regular.expression.RegExp.checkOnCorrectValue;
 
 @Aspect
 public class HeroMovesWatcher {
@@ -20,11 +20,11 @@ public class HeroMovesWatcher {
     @Autowired
     private SystemData systemData;
 
-    @Pointcut("execution(* org.byaxe.implementLevel.Hero.enter()) && target(hero)")
+    @Pointcut("execution(* org.byaxe.creations.implementLevel.Hero.enter()) && target(hero)")
     public void enter(Hero hero) {
     }
 
-    @Pointcut("execution(* org.byaxe.implementLevel.Hero.escape()) && target(hero)")
+    @Pointcut("execution(* org.byaxe.creations.implementLevel.Hero.escape()) && target(hero)")
     public void escape(Hero hero) {
     }
 

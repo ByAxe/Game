@@ -1,7 +1,6 @@
 Structure:
     Name
     -   Id
-    -   lvl
     -   MP
     -   HP
     -   STR

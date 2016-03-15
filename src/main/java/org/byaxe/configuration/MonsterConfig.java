@@ -1,6 +1,7 @@
-package org.byaxe;
+package org.byaxe.configuration;
 
-import org.byaxe.implementLevel.Monster;
+import org.byaxe.creations.ICreation;
+import org.byaxe.creations.implementLevel.Monster;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,7 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.TreeMap;
 
-import static org.byaxe.SystemData.FILE_MONSTERS;
+import static org.byaxe.data.SystemData.FILE_MONSTERS;
 
 @Configuration
 public class MonsterConfig {

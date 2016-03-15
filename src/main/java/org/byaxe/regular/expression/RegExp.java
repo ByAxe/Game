@@ -1,4 +1,4 @@
-package org.byaxe.expression;
+package org.byaxe.regular.expression;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -8,7 +8,7 @@ public class RegExp {
 
     public static final String YES = "^([Yy][Ee][Ss])$";
     public static final String YES_NO = "^([Yy][Ee][Ss])|([Nn][Oo])$";
-    public static final String NUMERIC = "^[01]*?$";
+    public static final String NUMERIC = "^[0-9]*?$";
     public static final String WEAPON = "^(WEAPON)\\s*?$";
     public static final String ARMOR = "^(ARMOR)\\s*?$";
     public static final String NAME = "^[a-zA-Z]{3,15}$";

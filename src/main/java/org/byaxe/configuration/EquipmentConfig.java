@@ -1,6 +1,7 @@
-package org.byaxe;
+package org.byaxe.configuration;
 
 import org.byaxe.abilities.IAbility;
+import org.byaxe.data.TypeOfEquipment;
 import org.byaxe.equipment.IEquipment;
 import org.byaxe.equipment.implementLevel.Armor;
 import org.byaxe.equipment.implementLevel.Weapon;
@@ -16,8 +17,8 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static org.byaxe.SystemData.FILE_EQUIPMENT;
-import static org.byaxe.expression.RegExp.*;
+import static org.byaxe.data.SystemData.FILE_EQUIPMENT;
+import static org.byaxe.regular.expression.RegExp.*;
 
 @Configuration
 public class EquipmentConfig {

@@ -1,7 +1,7 @@
 package org.byaxe.equipment.implementLevel;
 
 import org.byaxe.abilities.IAbility;
-import org.byaxe.TypeOfEquipment;
+import org.byaxe.data.TypeOfEquipment;
 import org.byaxe.equipment.abstractLevel.AbstractArmor;
 
 public class Armor extends AbstractArmor {
