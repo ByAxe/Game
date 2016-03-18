@@ -2,22 +2,18 @@ package org.byaxe.data.entities;
 
 import javax.persistence.*;
 
-/**
- * Created by byaxe on 3/13/16.
- */
 @MappedSuperclass
 public abstract class AbstractEntity {
 
-    private Long id;
+    private int id;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false, insertable = true, updatable = false)
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

@@ -6,16 +6,17 @@
 
 	<persistence-unit name="GAME_PERSISTENCE_UNIT" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>org.byaxe.data.entities.creations.heroes.LevelsEntity</class>
 		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL92Dialect" />
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.callable" value="true"/>
 			<property name="hibernate.connection.zeroDateTimeBehavior" value="convertToNull"/>
 			<property name="hibernate.jdbc.batch_size" value="100"/>
 			<property name="hibernate.hbm2ddl.auto" value="none"/>
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/game_db"/>
-			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-			<property name="hibernate.connection.username"/>
+			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/game_db"/>
+			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+			<property name="hibernate.connection.username" value="byaxe"/>
 			<property name="hibernate.connection.password"/>
 		</properties>
 	</persistence-unit>
