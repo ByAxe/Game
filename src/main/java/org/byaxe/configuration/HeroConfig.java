@@ -1,40 +1,44 @@
 package org.byaxe.configuration;
 
-import org.byaxe.creations.implementLevel.Hero;
-import org.byaxe.data.TypeOfEquipment;
-import org.byaxe.equipment.IEquipment;
-import org.byaxe.equipment.implementLevel.Armor;
-import org.byaxe.equipment.implementLevel.Weapon;
+import org.byaxe.data.dao.implementation.EquipmentDAOImpl;
+import org.byaxe.data.entities.creations.heroes.HeroesEntity;
+import org.byaxe.data.entities.creations.heroes.ParametersEntity;
+import org.byaxe.data.entities.creations.heroes.PointsEntity;
+import org.byaxe.data.entities.equipment.armor.ArmorEntity;
+import org.byaxe.data.entities.equipment.weapon.WeaponEntity;
+import org.byaxe.regular.expression.RegExp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.byaxe.regular.expression.RegExp;
-
-import java.util.EnumMap;
-import java.util.HashMap;
 
 import static org.byaxe.data.SystemData.MIN_LEVEL;
-import static org.byaxe.data.TypeOfEquipment.*;
 
 @Configuration
 public class HeroConfig {
 
-    @Bean(name = "hero")
     @Autowired
-    public Hero hero(Weapon weapon, Armor armor) {
-        EnumMap<TypeOfEquipment, IEquipment> equipmentMap = new EnumMap<>(TypeOfEquipment.class);
-        equipmentMap.put(WEAPON, weapon);
-        equipmentMap.put(ARMOR, armor);
-        return new Hero(equipmentMap, RegExp.checkOnCorrectValue("Hi. Please, enter your name:\t", RegExp.NAME),
-                MIN_LEVEL, 20, 100, 15, 15, null, 0);
+    EquipmentDAOImpl equipment;
+
+    @Bean(name = "hero")
+    public HeroesEntity hero() {
+        HeroesEntity hero = new HeroesEntity();
+
+        hero.setName(RegExp.checkOnCorrectValue("Hi. Please, enter your name:\t", RegExp.NAME));
+        hero.setArmor((ArmorEntity) equipment.getEquipmentById(1, ArmorEntity.class));
+        hero.setWeapon((WeaponEntity) equipment.getEquipmentById(1, WeaponEntity.class));
+        hero.setPoints(setBasicPoint(hero));
+        hero.setExperience(0);
+        hero.setLvl(MIN_LEVEL);
+        hero.setParameters(setBasicParameters(hero));
+        /*TODO I finished here*/
+        return hero;
     }
 
-    @Bean
-    public HashMap<Byte, Integer> experienceTable() {
-        HashMap<Byte, Integer> requiredExperience = new HashMap<>();
-        for (byte i = 1; i <= 10; i++) {
-            requiredExperience.put(i, i * 100);
-        }
-        return requiredExperience;
+    private ParametersEntity setBasicParameters(final HeroesEntity hero) {
+        return new ParametersEntity(100, 40, 10, 10, 10, hero);
+    }
+
+    private PointsEntity setBasicPoint(final HeroesEntity hero) {
+        return new PointsEntity(10, 0, hero);
     }
 }

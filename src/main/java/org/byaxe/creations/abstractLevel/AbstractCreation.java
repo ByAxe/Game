@@ -8,7 +8,7 @@ import java.util.EnumMap;
 import java.util.Map;
 
 import static org.byaxe.data.SystemData.PERFORMANCE_FACTOR;
-import static org.byaxe.data.SystemData.randomDistribution;
+import static org.byaxe.data.SystemData.randomDistributionOfDamage;
 import static org.byaxe.data.TypeOfEquipment.ARMOR;
 import static org.byaxe.data.TypeOfEquipment.WEAPON;
 
@@ -46,7 +46,7 @@ public abstract class AbstractCreation implements ICreation {
         int damage = weapon.getDamage();
 
         return (isAbilityInWeapon ? weapon.getAbility().use() : 0)
-                + damage * (int) (PERFORMANCE_FACTOR * this.getStrength()) + randomDistribution();
+                + damage * (int) (PERFORMANCE_FACTOR * this.getStrength()) + randomDistributionOfDamage();
 
     }
 
@@ -57,7 +57,7 @@ public abstract class AbstractCreation implements ICreation {
         boolean isAbilityInArmor = null != armor.getAbility();
 
         return (isAbilityInArmor ? armor.getAbility().use() : 0)
-                + protection * (int) (PERFORMANCE_FACTOR * this.getAgility()) + randomDistribution();
+                + protection * (int) (PERFORMANCE_FACTOR * this.getAgility()) + randomDistributionOfDamage();
     }
 
     public Map<TypeOfEquipment, IEquipment> getEquipmentMap() {

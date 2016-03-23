@@ -1,12 +1,13 @@
 # Console Game
 
-* This project was the test task from SC.
+* ~~This project is the test task from SC.
+* My current course-work
 
-### Let's overview the structure (v0.4.3)
+### Let's overview the structure (v0.4.4)
 ---
 
-##### - src/main/java/org
-- java
+##### - src/main/
+- java/org/byaxe
     - Game.java - main method based here
     - Cycle.java - contains the main cycle of choices 
 
@@ -31,9 +32,11 @@
         - AppConfig.java - *main configuration class*
         - AbilityConfig.java
         - EquipmentConfig.java
-        - HeroConfig.java - **creates the hero into Spring context
+        - HeroConfig.java - *creates the hero into Spring context*
         - MonsterConfig.java
         - AspectConfig.java
+        - DaoConfig.java
+        - JpaConfig.java - **Hibernate Jpa configuration for DB**
         
     - creations - **Heroes' and Monsters' logic based here**
         - ICreation.java
@@ -52,6 +55,22 @@
             - Introduction.java - *introduction text*
             - FirstMeeting.java
             - InventoryInformation.java - *Include methods that output information about hero*
+        - dao **Dao files\***
+            - implementation
+                - EffectsDAOImpl.java
+                - EquipmentDAO.java
+                - HeroDAOImpl.java
+                - LevelsDAOImpl.java
+                - MonsterDAOImpl.java
+                - SkillsDAOImpl.java
+            - interfaces
+                - IEffectsDAO.java
+                - IEquipmentDAO.java
+                - IHeroDAO.java
+                - ILevelsDAO.java
+                - IMonsterDAO.java
+                - ISkillsDAO.java
+            GenericAbstractDAO.java
             
         - entities *Database maping*
             - creations
@@ -59,6 +78,7 @@
                     - HeroesEntity.java
                     - LevelsEntity.java
                     - ParametersEntity.java
+                    - PointsEntity.java
                 - monsters
                     - MonstersEntity.java
             - equipment
@@ -75,41 +95,41 @@
             - SkillsEntity.java
             - TextsEntity.java
             
-    - equipment - **Equipment of the Hero and Monsters**
-        - IEquipment.java - *interface that contains approximately all necessary methods for Equipment*
-        - abstractLevel
-            - AbstractEquipment.java - *main abstract class in equipment' logic*
-            - AbstractWeapon.java
-            - AbstractArmor.java
-        - implementLevel
-            - Armor.java - *implementation of all these abstract blocks for Armor*
-            - Weapon.java - *implementation of all these abstract blocks for Weapon*
-            
     - regular/expression
         - RegExp - *checker on correct values*
+        
+    - exceptions
+        - AlreadyContainsException.java
+        - NotContainsException.java
+        
 - resources
       - equipment.txt  - *data on specific units of equipment*
       - monsters.txt - *data on specific units of monsters*
-      - hibernate-config.xml - *hibernate configuration file*
       - persistence.xml - *preferences for db-connection*
+      
 # DataBase Scheme
  * Since 0.4.2.x I have started to use PostgreSQL instead of plenty txt files for application purposes.
  * PostrgreSQL version: 9.5.1
  
 [Here is a scheme of that database](DBScheme.png)
  
-(*to make this image I used trial version of DBSchema*)
+> *to make this image I used trial version of DBSchema*
 
 # !Explanation for the mess in project
-* As I marked above project relocates from *.txt and class information-based application
+> 1. As I marked above project relocates from *.txt and class information-based application
      into Spring+Hibernate DB one.
-* What have been done for now is:
-    * created database
-    * it was filled with the test data
-    * created basic mapping files (entities) 
+  2. What have been done for now is:
+    - created database
+    - it was filled with the test data
+    - created basic mapping files (entities)
     
 # Plans for the next few commits
-* *Create DAO layer*
-* *Delete a useless classes a clean the project*
+- [x] Create DAO layer
+- [ ] Delete a useless classes a clean the project
           
 # Project logic will be described a bit later
+
+# Naming rules
+    1. Classes in *dao* package named in according to the rules below:
+        1.1 interfaces -> I + Class title + DAO
+        1.2 implementation -> Class title + DAO + Impl

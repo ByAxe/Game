@@ -37,6 +37,4 @@ public abstract class AbstractHero extends AbstractCreation {
         this.experience = experience;
     }
 
-
-    /*TODO add inventory for collecting equipment*/
 }

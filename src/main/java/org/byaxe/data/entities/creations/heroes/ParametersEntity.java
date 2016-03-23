@@ -20,6 +20,24 @@ public class ParametersEntity extends AbstractEntity {
     private int currentIntellect;
     private HeroesEntity hero;
 
+    public ParametersEntity() {
+
+    }
+
+    public ParametersEntity(int hp, int mp, int strength, int agility, int intellect, HeroesEntity hero) {
+        this.hp = hp;
+        this.currentHp = hp;
+        this.mp = mp;
+        this.currentMp = mp;
+        this.strength = strength;
+        this.currentStrength = strength;
+        this.agility = agility;
+        this.currentAgility = agility;
+        this.intellect = intellect;
+        this.currentIntellect = intellect;
+        this.hero = hero;
+    }
+
     @Column(name = "hp")
     public int getHp() {
         return hp;

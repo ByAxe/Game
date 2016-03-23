@@ -41,8 +41,6 @@ public class AbilityConfig {
                 20, 0, (byte) 1, 10);
     }
 
-    /*TODO transport Beans above in another Configuration file*/
-
     @Bean(name = "abilityMap")
     public HashMap<String, IAbility> abilityMap() {
         HashMap<String, IAbility> abilityMap = new HashMap<>();

@@ -43,7 +43,7 @@ public class BattleWatcher {
     }
 
 
-    public void fight(final Hero hero) {
+    private void fight(final Hero hero) {
         /*TODO add fight logic*/
     }
 }

@@ -25,10 +25,13 @@ public class SystemData {
     public static final byte MIN_RAND_LEVEL_LOW = -1;
     public static final byte MAX_RAND_LEVEL_LOW = 1;
 
-    public static final byte MIN_RAND_LEVEL_HIGH = -2;
-    public static final byte MAX_RAND_LEVEL_HIGH = 2;
+    public static final byte MIN_RAND_LEVEL_MIDDLE = -2;
+    public static final byte MAX_RAND_LEVEL_MIDDLE = 2;
 
-    public static final byte MIN_LEVEL = 1;
+    public static final byte MIN_RAND_LEVEL_HIGH = -4;
+    public static final byte MAX_RAND_LEVEL_HIGH = 4;
+
+    public static final byte MIN_LEVEL = 0;
     public static final byte MAX_LEVEL = 10;
 
     public static final String FILE_EQUIPMENT = Paths.get("src/main/resources", "equipment.txt").toString();
@@ -54,26 +57,33 @@ public class SystemData {
     private EquipmentConfig equipmentConfig;
 
 
-    public static int randomDistribution() {
+    public static int randomDistributionOfDamage() {
         return MIN_RANDOM_DAMAGE + (int) (Math.random() * ((MAX_RANDOM_DAMAGE - MIN_RANDOM_DAMAGE) + 1));
+    }
+
+    public static int randomDistribution(final int limit){
+        return (int) (Math.random() * (limit + 1));
     }
 
     public Integer getRequiredExperience(final byte level) {
         return requiredExperience.get(level);
     }
 
-    public int chooseLevelOfTheEnemy(final byte heroLevel) {
+    public static int chooseLevelOfEnemy(final int heroLevel) {
         int monsterLevel = MIN_LEVEL;
 
-        if (heroLevel >= 2 && heroLevel <= 6) {
+        if (heroLevel >= 2 && heroLevel <= 10) {
             monsterLevel = heroLevel + (MIN_RAND_LEVEL_LOW + (int) (Math.random() *
                     ((MAX_RAND_LEVEL_LOW - (MIN_RAND_LEVEL_LOW)) + MAX_RAND_LEVEL_LOW)));
 
-        } else if (heroLevel > 6 && heroLevel <= 9) {
+        } else if (heroLevel > 10 && heroLevel <= 18) {
+            monsterLevel = heroLevel + (MIN_RAND_LEVEL_MIDDLE + (int) (Math.random() *
+                    ((MAX_RAND_LEVEL_MIDDLE - (MIN_RAND_LEVEL_MIDDLE)) + MAX_RAND_LEVEL_MIDDLE)));
+
+        } else if (heroLevel > 18) {
             monsterLevel = heroLevel + (MIN_RAND_LEVEL_HIGH + (int) (Math.random() *
                     ((MAX_RAND_LEVEL_HIGH - (MIN_RAND_LEVEL_HIGH)) + MAX_RAND_LEVEL_HIGH)));
-
-        } else if (heroLevel == MAX_LEVEL) monsterLevel = MAX_LEVEL;
+        }
 
         return monsterLevel;
     }
@@ -95,7 +105,7 @@ public class SystemData {
     }
 
     public Monster createMonster(final Hero hero) {
-        Monster monster = (Monster) (monstersTable.get(chooseLevelOfTheEnemy(hero.getLevel())));
+        Monster monster = (Monster) (monstersTable.get(chooseLevelOfEnemy(hero.getLevel())));
         EnumMap<TypeOfEquipment, IEquipment> eqMap = new EnumMap<>(TypeOfEquipment.class);
 
         equipmentConfig.weaponTable.entrySet().stream()
