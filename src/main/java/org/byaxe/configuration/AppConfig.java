@@ -7,9 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@Import({EquipmentConfig.class, HeroConfig.class, AspectConfig.class,
-        MonsterConfig.class, AbilityConfig.class, DaoConfig.class,
-        JpaConfig.class})
+@Import({ HeroConfig.class, AspectConfig.class, DaoConfig.class, JpaConfig.class})
 public class AppConfig {
 
     @Bean

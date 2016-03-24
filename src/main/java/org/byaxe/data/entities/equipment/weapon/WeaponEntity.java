@@ -57,4 +57,14 @@ public class WeaponEntity extends AbstractEquipmentEntity {
     public void setEffects(Set<EffectsEntity> effects) {
         this.effects = effects;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Weapon{" +
+                "damageMin=" + damageMin +
+                ", damageMax=" + damageMax +
+                ", weaponType=" + weaponType +
+                ", effects=" + effects +
+                '}';
+    }
 }

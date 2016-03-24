@@ -92,4 +92,17 @@ public abstract class AbstractEquipmentEntity extends AbstractEntity {
         this.hero = hero;
     }
 
+    @Override
+    public String toString() {
+        return "Equipment{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", requiredLevel=" + requiredLevel +
+                ", requiredStrength=" + requiredStrength +
+                ", requiredAgility=" + requiredAgility +
+                ", requiredIntellect=" + requiredIntellect +
+                ", rarity=" + rarity +
+                ", hero=" + hero +
+                '}';
+    }
 }

@@ -21,4 +21,5 @@ public class EquipmentDAOImpl extends GenericAbstractDAO implements IEquipmentDA
         return entityManager.createQuery("SELECT eq from" +
                 clazz.getName() + " eq", clazz).getSingleResult();
     }
+
 }

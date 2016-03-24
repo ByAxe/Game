@@ -6,7 +6,10 @@ import java.util.List;
 
 public interface IEquipmentDAO {
 
-    List<? extends AbstractEquipmentEntity> getEquipmentList(final Class<? extends AbstractEquipmentEntity> clazz);
+    List<? extends AbstractEquipmentEntity> getEquipmentList(
+            final Class<? extends AbstractEquipmentEntity> clazz);
 
-    AbstractEquipmentEntity getEquipmentById(final int id, final Class<? extends AbstractEquipmentEntity> clazz);
+    AbstractEquipmentEntity getEquipmentById(
+            final int id, final Class<? extends AbstractEquipmentEntity> clazz);
+
 }

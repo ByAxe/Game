@@ -5,13 +5,14 @@ import org.byaxe.equipment.IEquipment;
 
 import static org.byaxe.data.TypeOfEquipment.ARMOR;
 import static org.byaxe.data.TypeOfEquipment.WEAPON;
+import static org.byaxe.regular.expression.RegExp.WEAPON;
 
 public class InventoryInformation {
 
     public static String additionalInformationAboutWeapon(Hero hero) {
         IEquipment weapon = hero.getEquipmentMap().get(WEAPON);
 
-        return "\n-----------------------------------WEAPON------------------------------------------\n" +
+        return "-----------------------------------WEAPON------------------------------------------\n" +
                 weapon.getTitle() + " " +
                 weapon.getDamage() + "\n" +
                 "Abilities: " +

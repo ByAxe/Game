@@ -11,5 +11,7 @@ import java.util.List;
 public interface IMonsterDAO {
     List<MonstersEntity> getMonstersList();
 
-    MonstersEntity getMonster(final HeroesEntity hero);
+    MonstersEntity getMonsterDependsOnHero(final HeroesEntity hero);
+
+    MonstersEntity getMonsterById(final int id);
 }

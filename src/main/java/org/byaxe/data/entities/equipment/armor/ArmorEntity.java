@@ -57,4 +57,14 @@ public class ArmorEntity extends AbstractEquipmentEntity {
     public void setEffects(Set<EffectsEntity> effects) {
         this.effects = effects;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Armor{" +
+                "protectionMin=" + protectionMin +
+                ", protectionMax=" + protectionMax +
+                ", armorType=" + armorType +
+                ", effects=" + effects +
+                '}';
+    }
 }

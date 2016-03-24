@@ -10,18 +10,19 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @EnableAspectJAutoProxy
 public class AspectConfig {
+
     @Bean
-    public BattleWatcher heroWatcher() {
+    public BattleWatcher battleWatcher() {
         return new BattleWatcher();
+    }
+
+    @Bean
+    public HeroMovesWatcher heroMovesWatcher() {
+        return new HeroMovesWatcher();
     }
 
     @Bean
     public InventoryWatcher inventoryWatcher() {
         return new InventoryWatcher();
-    }
-
-    @Bean
-    public HeroMovesWatcher heroMovesWatcher(){
-        return new HeroMovesWatcher();
     }
 }

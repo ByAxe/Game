@@ -18,6 +18,7 @@ public class ParametersEntity extends AbstractEntity {
     private int currentAgility;
     private int intellect;
     private int currentIntellect;
+    private int criticalChance;
     private HeroesEntity hero;
 
     public ParametersEntity() {
@@ -126,6 +127,15 @@ public class ParametersEntity extends AbstractEntity {
 
     public void setCurrentIntellect(int currentIntellect) {
         this.currentIntellect = currentIntellect;
+    }
+
+    @Column(name = "critical_chance")
+    public int getCriticalChance() {
+        return criticalChance;
+    }
+
+    public void setCriticalChance(int criticalChance) {
+        this.criticalChance = criticalChance;
     }
 
     @OneToOne(fetch = FetchType.EAGER)

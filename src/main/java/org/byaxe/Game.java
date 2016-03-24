@@ -1,11 +1,11 @@
 package org.byaxe;
 
 import org.byaxe.configuration.AppConfig;
-import org.byaxe.creations.ICreation;
+import org.byaxe.data.dao.interfaces.IHeroDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import static org.byaxe.data.SystemData.QUESTION_WHEN_ENTER;
+import static org.byaxe.data.SystemData.MAIN_QUESTION;
 import static org.byaxe.regular.expression.RegExp.*;
 
 public class Game {
@@ -13,7 +13,7 @@ public class Game {
         final ApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
 
-        final ICreation hero = (ICreation) context.getBean("hero");
+        final IHeroDAO hero = (IHeroDAO) context.getBean("hero");
         final Cycle cycle = new Cycle();
 
 /*        Thread intro = new Thread(new Introduction("Introduction"));
@@ -27,7 +27,7 @@ public class Game {
 
         checkOnCorrectValue("You see the entrance. Enter? (adventure start here)\n\t(yes) - ", YES);
 
-        System.out.println(hero.enter());
+        hero.enter();
 
         for (int i = 0; ; ++i) {
             if (i == 1) {
@@ -41,7 +41,7 @@ public class Game {
                 }*/
             }
 
-            cycle.choice(checkOnCorrectValue(QUESTION_WHEN_ENTER, A_B_C), hero);
+            cycle.choice(checkOnCorrectValue(MAIN_QUESTION, A_B_C), hero);
         }
     }
 

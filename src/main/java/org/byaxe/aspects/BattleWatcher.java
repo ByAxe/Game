@@ -8,7 +8,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.byaxe.data.SystemData.QUESTION_FIGHT_OR_RUN;
+import static org.byaxe.data.SystemData.QUESTION_ABOUT_FIGHT;
 import static org.byaxe.regular.expression.RegExp.FIGHT_IF_TRUE;
 import static org.byaxe.regular.expression.RegExp.checkOnCorrectValue;
 
@@ -28,9 +28,9 @@ public class BattleWatcher {
     public void meetingWithMonster(final Hero hero) {
 
         monster = systemData.createMonster(hero);
-        System.out.println(systemData.chooseMessageAboutMonsterDependsOnLevel(monster, hero));
+        System.out.println(systemData.chooseMessageAboutMonsterDependsOnHeroLevel(monster, hero));
 
-        if ("run".equalsIgnoreCase(checkOnCorrectValue(QUESTION_FIGHT_OR_RUN, FIGHT_IF_TRUE))) {
+        if ("run".equalsIgnoreCase(checkOnCorrectValue(QUESTION_ABOUT_FIGHT, FIGHT_IF_TRUE))) {
             fight(hero);
         } else {
             System.out.println("Let's get out of here!\n");
