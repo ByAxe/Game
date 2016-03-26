@@ -9,6 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "monsters")
 public class MonstersEntity extends AbstractEntity {
+
     private String name;
     private int lvl;
     private String description;

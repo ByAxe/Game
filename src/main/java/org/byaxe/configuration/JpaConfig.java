@@ -60,7 +60,7 @@ public class JpaConfig {
     public JpaTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean emf){
         JpaTransactionManager jtm = new JpaTransactionManager();
 
-        jtm.setEntityManagerFactory((EntityManagerFactory) emf);
+        jtm.setEntityManagerFactory(emf.getNativeEntityManagerFactory());
 
         return jtm;
     }

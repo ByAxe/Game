@@ -4,11 +4,13 @@ import org.byaxe.data.dao.GenericAbstractDAO;
 import org.byaxe.data.dao.interfaces.IHeroDAO;
 import org.byaxe.data.entities.creations.heroes.HeroesEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by byaxe on 3/21/16.
  */
 @Repository
+@Transactional
 public class HeroDAOImpl extends GenericAbstractDAO implements IHeroDAO {
 
 

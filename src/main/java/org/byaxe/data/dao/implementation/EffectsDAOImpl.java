@@ -4,6 +4,7 @@ import org.byaxe.data.dao.GenericAbstractDAO;
 import org.byaxe.data.dao.interfaces.IEffectsDAO;
 import org.byaxe.data.entities.EffectsEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by byaxe on 3/22/16.
  */
 @Repository
+@Transactional
 public class EffectsDAOImpl extends GenericAbstractDAO implements IEffectsDAO {
 
     @Override

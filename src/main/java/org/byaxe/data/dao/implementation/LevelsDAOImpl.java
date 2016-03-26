@@ -9,9 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
+@Transactional
 public class LevelsDAOImpl extends GenericAbstractDAO implements ILevelsDAO {
 
-    @Transactional
+
     public List<LevelsEntity> getLevelsList() {
         return entityManager.createQuery("SELECT l from LevelsEntity l",
                 LevelsEntity.class).getResultList();

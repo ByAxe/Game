@@ -4,6 +4,7 @@ import org.byaxe.data.dao.GenericAbstractDAO;
 import org.byaxe.data.dao.interfaces.IMonsterDAO;
 import org.byaxe.data.entities.creations.monsters.MonstersEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -11,11 +12,12 @@ import java.util.List;
  * Created by byaxe on 3/21/16.
  */
 @Repository
+@Transactional
 public class MonsterDAOImpl extends GenericAbstractDAO implements IMonsterDAO {
 
     @Override
     public List<MonstersEntity> getMonstersList() {
-        return entityManager.createQuery("SELECT m from MonstersEntity m",
+        return entityManager.createQuery("SELECT m FROM MonstersEntity m",
                 MonstersEntity.class).getResultList();
     }
 
