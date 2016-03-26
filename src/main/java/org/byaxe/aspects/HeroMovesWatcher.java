@@ -1,12 +1,12 @@
 package org.byaxe.aspects;
 
-import org.byaxe.creations.implementLevel.Hero;
-import org.byaxe.data.SystemData;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.byaxe.data.entities.creations.heroes.HeroesEntity;
+import org.byaxe.logic.implementation.HeroBusinessLogicImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -18,27 +18,27 @@ import static org.byaxe.regular.expression.RegExp.checkOnCorrectValue;
 public class HeroMovesWatcher {
 
     @Autowired
-    private SystemData systemData;
+    private HeroBusinessLogicImpl heroBusinessLogic;
 
-    @Pointcut("execution(* org.byaxe.creations.implementLevel.Hero.enter()) && target(hero)")
-    public void enter(Hero hero) {
+    @Pointcut("execution(* org.byaxe.logic.implementation.HeroBusinessLogicImpl.enter()) && args(hero)")
+    public void enter(HeroesEntity hero) {
     }
 
-    @Pointcut("execution(* org.byaxe.creations.implementLevel.Hero.escape()) && target(hero)")
-    public void escape(Hero hero) {
+    @Pointcut("execution(* org.byaxe.logic.implementation.HeroBusinessLogicImpl.run()) && args(hero)")
+    public void escape(HeroesEntity hero) {
     }
 
     @Before(value = "enter(hero)", argNames = "hero")
-    public void watchEnter(final Hero hero) {
+    public void watchEnter(final HeroesEntity hero) {
         if ("yes".equalsIgnoreCase(checkOnCorrectValue(
                 "Do want to find out something about your statement?\t", YES_NO))) {
             /*TODO add choice: info either about equipment or about skills or about characteristics*/
-            systemData.infoAboutHero(hero);
+            heroBusinessLogic.getInfoAboutHero(hero);
         }
     }
 
     @Around(value = "escape(hero)", argNames = "pjp,hero")
-    public boolean tryToEscape(final ProceedingJoinPoint pjp, final Hero hero) {
+    public boolean tryToEscape(final ProceedingJoinPoint pjp, final HeroesEntity hero) {
         boolean result = true;
         try {
             result = (boolean) pjp.proceed();

@@ -3,7 +3,7 @@
 * ~~This project is the test task from SC~~.
 * My current course-work
 
-### Let's overview the structure (v0.4.5)
+### Let's overview the structure (v0.4.6)
 ---
 
 ##### - src/main/
@@ -72,12 +72,20 @@
     - regular/expression/
         - RegExp - **Regular expression class**
         
-    - exceptions/
+    - exceptions/ - **My own Exception classification for Game purposes**
         - AlreadyContainsException.java
         - NotContainsException.java
         - WeakHeroException.java
         - LowParametersException.java - **Descendant of WeakHeroException**
         - NotEnoughLevelException.java - **Descendant of WeakHeroException**
+        
+    - logic/ - **Logical operations with entities**
+        - implementation/
+            - HeroBusinessLogicImpl.java
+            - MonsterBusinessLogicImpl.java
+        - interface/
+            - IHeroBusinessLogic.java
+            - IMonsterBusinessLogic.java
         
 - resources/
       - persistence.xml - **preferences for db-connection**

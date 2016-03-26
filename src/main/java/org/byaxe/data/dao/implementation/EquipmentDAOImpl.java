@@ -12,14 +12,14 @@ public class EquipmentDAOImpl extends GenericAbstractDAO implements IEquipmentDA
 
     @Override
     public List<? extends AbstractEquipmentEntity> getEquipmentList(final Class<? extends AbstractEquipmentEntity> clazz) {
-        return entityManager.createQuery("SELECT eq from" +
-                clazz.getName() + " eq", clazz).getResultList();
+        return entityManager.createQuery("SELECT e from " +
+                clazz.getSimpleName() + " e", clazz).getResultList();
     }
 
     @Override
     public AbstractEquipmentEntity getEquipmentById(final int id, final Class<? extends AbstractEquipmentEntity> clazz) {
-        return entityManager.createQuery("SELECT eq from" +
-                clazz.getName() + " eq", clazz).getSingleResult();
+        return entityManager.createQuery("SELECT e FROM " + clazz.getSimpleName() + " e" +
+                " WHERE id = " + id, clazz).getSingleResult();
     }
 
 }

@@ -1,18 +1,28 @@
 package org.byaxe;
 
-import org.byaxe.creations.ICreation;
 import org.byaxe.data.dao.interfaces.IHeroDAO;
+import org.byaxe.data.entities.creations.heroes.HeroesEntity;
+import org.byaxe.logic.interfaces.IHeroBusinessLogic;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Cycle {
 
-    public void choice(final String answer, final IHeroDAO hero) {
+    @Autowired
+    IHeroBusinessLogic heroBusinessLogic;
+
+    @Autowired
+    IHeroDAO heroDAO;
+
+    public void choice(final String answer, HeroesEntity hero) {
         switch (answer) {
             case "a":
                 ifEntered(hero);
                 break;
 
             case "b":
-                hero.getInfoAboutEquipment();
+                heroBusinessLogic.getInfoAboutEquipment(hero);
                 /*TODO hero wants to change equipment?*/
                 break;
 
@@ -23,8 +33,8 @@ public class Cycle {
 
     }
 
-    private void ifEntered(final IHeroDAO hero) {
-        hero.enter();
-        hero.startBattle();
+    private void ifEntered(final HeroesEntity hero) {
+        heroBusinessLogic.enter(hero);
+        heroBusinessLogic.startBattle(hero);
     }
 }
